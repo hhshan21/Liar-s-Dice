@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-18T03:57:58.176Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="eD-x-7wyUx2HknsoTbha" version="20.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-18T03:59:18.064Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="SE_V9lGaQlARDfNXDNc0" version="20.0.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="993" dy="736" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -33,34 +33,37 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-7" value="Did YOU lie?" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="295" y="340" width="120" height="60" as="geometry" />
+          <mxGeometry x="455" y="340" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-12" target="WcS3ktXNy1LqLlGRtt7Z-16">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-12" value="DAVY JONES win" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="495" y="340" width="120" height="60" as="geometry" />
+          <mxGeometry x="655" y="340" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-16" value="Game end" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="495" y="480" width="120" height="60" as="geometry" />
+          <mxGeometry x="655" y="480" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-18" target="WcS3ktXNy1LqLlGRtt7Z-16">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-18" value="YOU win" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="295" y="480" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-30" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-27" target="WcS3ktXNy1LqLlGRtt7Z-7">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry x="455" y="480" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-27" target="WcS3ktXNy1LqLlGRtt7Z-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-27" target="WcS3ktXNy1LqLlGRtt7Z-62">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-27" value="DAVY JONES (DJ)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="90" y="340" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-31" value="Call YOU a liar" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="220" y="330" width="60" height="30" as="geometry" />
+          <mxGeometry x="210" y="330" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-66" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-34" target="WcS3ktXNy1LqLlGRtt7Z-65">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-34" value="YOU" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="95" y="590" width="110" height="50" as="geometry" />
@@ -85,27 +88,22 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-41" value="Did DJ lie?" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="290" y="590" width="120" height="60" as="geometry" />
+          <mxGeometry x="450" y="585" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-43" target="WcS3ktXNy1LqLlGRtt7Z-44">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-43" value="YOU win" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="490" y="590" width="120" height="60" as="geometry" />
+          <mxGeometry x="650" y="585" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-44" value="Game end" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="490" y="730" width="120" height="60" as="geometry" />
+          <mxGeometry x="650" y="725" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-45" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-46" target="WcS3ktXNy1LqLlGRtt7Z-44">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-46" value="DJ win" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="290" y="730" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-47" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="WcS3ktXNy1LqLlGRtt7Z-41">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="205.0000000000001" y="620" as="sourcePoint" />
-          </mxGeometry>
+          <mxGeometry x="450" y="725" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-48" value="Call DJ a liar" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="215" y="580" width="60" height="30" as="geometry" />
@@ -120,6 +118,18 @@
               <mxPoint x="20" y="450" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-64" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-62" target="WcS3ktXNy1LqLlGRtt7Z-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-62" value="Show dices and highlight dice color" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="275" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-65" target="WcS3ktXNy1LqLlGRtt7Z-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-65" value="Show dices and highlight dice color" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="275" y="585" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
