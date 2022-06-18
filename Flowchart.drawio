@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-06-18T07:08:35.595Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="EhYviq4ZGAZLIYsCK8k7" version="20.0.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-06-18T07:09:43.448Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36" etag="3YPN8RMuOkbSSmNDevFA" version="20.0.1" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="993" dy="665" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -9,6 +9,11 @@
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-147" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="50" y="350" width="650" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-153" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-103">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="335" y="350" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-103" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="70" y="220" width="530" height="90" as="geometry" />
@@ -33,7 +38,7 @@
             <mxPoint x="1" y="-13" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-7" value="Did YOU/DJ lie?" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="WcS3ktXNy1LqLlGRtt7Z-7" value="YOU/DJ lie?" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="422.5" y="385" width="70" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-151" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WcS3ktXNy1LqLlGRtt7Z-12" target="WcS3ktXNy1LqLlGRtt7Z-125">
@@ -159,7 +164,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="WcS3ktXNy1LqLlGRtt7Z-140" value="Click &quot;liar&quot; button" style="rounded=1;whiteSpace=wrap;html=1;shadow=0;strokeWidth=1;spacing=6;spacingTop=-4;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="287.5" y="535" width="70" height="45" as="geometry" />
+          <mxGeometry x="287.5" y="517.5" width="70" height="45" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
