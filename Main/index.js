@@ -1,4 +1,4 @@
-
+import Dice from "./dice/dice.js";
 
 
 // Starting whole game with a start notification
