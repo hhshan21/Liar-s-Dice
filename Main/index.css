@@ -1,6 +1,6 @@
 .noti-container {
     position: absolute;
-    background-color: rgba(195, 195, 195, 0.8);
+    background-color: rgb(195, 195, 195, 0.8);
     top: 0;
     right: 0;
     bottom: 0;
@@ -35,6 +35,10 @@
     width: 5em;
     margin: 0;
 }
+
+#players-not-me {
+    margin-bottom: 10px;
+}
   
 .player-container .dice-container {
     flex: 1 0 auto;
@@ -51,4 +55,14 @@
   
 .player-container .dice-container .die:last-child {
     border-right: 1px solid black;
+}
+
+#bid-container {
+    background-color: rgb(195, 195, 195);
+    min-height: 57px;
+}
+
+#my-bid-container {
+    background-color: rgb(195, 195, 195);
+    min-height: 57px
 }

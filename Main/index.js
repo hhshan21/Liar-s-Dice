@@ -33,7 +33,7 @@ function init() {
 
     const players = [
         new User(
-            'Shan',
+            'You',
             '/Images/Pirate.jpg',
             false,
             dice
