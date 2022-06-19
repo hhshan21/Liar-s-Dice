@@ -8,7 +8,8 @@ class Die {
     }
 }
 
-
+// Holds info of a set of die
+// Does the shuffling of the set of die for the die dace
 export default class Dice {
     #dice = []
     constructor() {
@@ -25,4 +26,4 @@ export default class Dice {
             this.#dice.push(die);
         }
     }
-  }
+}
