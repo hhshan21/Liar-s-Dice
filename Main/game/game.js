@@ -18,16 +18,17 @@ export default class Game {
   
         let playersNotMeStr = '';
         let playerMeStr = '';
+        
         this.#players.forEach((player, ind) => {
-        player.shuffleDice();
+            player.shuffleDice();
   
-        const playerComponent = new PlayerComponent(player);
-        if(player.isNpc || this.#currentPlayerTurn !== ind) {
-            playersNotMeStr += playerComponent.render();
-        } else {
-            playerMeStr += playerComponent.render(true);
-        }
-    })
+            const playerComponent = new PlayerComponent(player);
+            if(player.isNpc || this.#currentPlayerTurn !== ind) {
+                playersNotMeStr += playerComponent.render();
+            } else {
+                playerMeStr += playerComponent.render(true);
+            }
+        })
   
         playersNotMe.innerHTML = playersNotMeStr;
         playerMe.innerHTML = playerMeStr;
@@ -38,4 +39,4 @@ export default class Game {
     //   const str = `${name} bid: ${chosen}`
     //   dom.innerHTML = str
     // }
-  }
+}
