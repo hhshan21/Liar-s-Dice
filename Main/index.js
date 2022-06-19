@@ -18,7 +18,7 @@ function startGame() {
 }
 
 function addEventListeners() {
-    document.getElementById('start-noti').addEventListeners('click', () => {
+    document.getElementById('start-noti').addEventListener('click', () => {
         startGame();
     })
 }
@@ -27,6 +27,8 @@ function addEventListeners() {
 function init() {
     startNoti(true);
     addEventListeners();
+
+    const dice = new Dice();
 }
 
 init();
