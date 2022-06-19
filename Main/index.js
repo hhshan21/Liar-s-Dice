@@ -1,5 +1,5 @@
 import Dice from "./dice/dice.js";
-
+import Game from "./game/game.js";
 
 // Starting whole game with a start notification
 function startNoti(isShown) {
@@ -29,6 +29,10 @@ function init() {
     addEventListeners();
 
     const dice = new Dice();
+
+    const players = [
+
+    ]
 }
 
 init();
