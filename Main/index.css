@@ -1,0 +1,26 @@
+.noti-container {
+    position: absolute;
+    background-color: rgba(195, 195, 195, 0.8);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.noti-container .noti-container-body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background: white;
+}
+
+.noti-container .noti-container-body .start-icon {
+    background-image: url(/Images/POTC.png);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 5em;
+}
