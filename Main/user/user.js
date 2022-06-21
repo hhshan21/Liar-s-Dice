@@ -11,7 +11,7 @@ export default class User {
     shuffleDice() {
         this.dice.length = 0; // remove all item from dice array
 
-        for(let i=0; i<6; i++) {
+        for(let i=0; i<5; i++) {
             const die = this.#diceObj.getRandomDie();
             this.dice.push(die);
         }

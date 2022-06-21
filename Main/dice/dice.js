@@ -17,13 +17,17 @@ export default class Dice {
     }
   
     getRandomDie() {
-        return this.#dice[0];
+        return this.#dice[(Math.floor(Math.random() * 6))];
     }
-  
+    
+    //this is to ensure that there are only 6 die faces
     #seedDice() {
         for(let i=1; i<= 6; i++) {
+            // randomise the i with the Math.floor(rand)
             const die = new Die(i);
             this.#dice.push(die);
         }
+
+        
     }
 }
