@@ -2,7 +2,7 @@ import PlayerComponent from "../player-component/player-component.js";
 
 export default class Game {
     #players = [];
-    #currentPlayerTurn = 0; // Index of this.#players
+    #currentPlayerTurn = 2; // Index of this.#players
   
     constructor() {
       // 
@@ -27,16 +27,16 @@ export default class Game {
             how come the PlayerComponent receives an argument of player? 
             Is it because the PlayerCompanent class object received an argument from user that's why can perform "player.isNpc"?*/
             const playerComponent = new PlayerComponent(player);
+
             // if(player.isNpc || this.#currentPlayerTurn !== ind) {
             //     playersNotMeStr += playerComponent.render();
             // } else {
             //     playerMeStr += playerComponent.render(true);
             // }
 
-            // isNpc is a boolean value
             // .render method accepts a boolean argument whether to display dice or not
             const isPlayer = player.isPlayer
-            if (isPlayer) {
+            if (isPlayer || this.#currentPlayerTurn == ind) {
                 playerDiceMarkup += playerComponent.render(isPlayer);
             } else {
                 computerDiceMarkup += playerComponent.render(isPlayer);
@@ -55,6 +55,11 @@ export default class Game {
 
     showMyAvailableBid() {
         const myBidContainer = document.getElementById('my-bid-container')
+        
 
+        `<div data-face='1' data-count='1'>
+            <span>1 x </span> (same as data count)
+            <i data-i="6" data-ri="" class="dice die-6 small"></i>
+        </div>`
     }
 }

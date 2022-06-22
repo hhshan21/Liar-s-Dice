@@ -66,3 +66,9 @@
     background-color: rgb(195, 195, 195);
     min-height: 57px
 }
+
+.dice-container img {
+    height: 50px;
+    padding-top: 50px;
+    padding-left: 10px;
+}

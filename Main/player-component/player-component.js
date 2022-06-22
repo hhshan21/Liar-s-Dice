@@ -17,7 +17,7 @@ export default class PlayerComponent {
                         if(toDisplayDieFace) {
                             return `<img src="../../Images/Dice${die.face}.png"/>`
                         } else {
-                            return `<div class="die">-</div>`
+                            return `<img src="../../Images/Diceqm.png"/>`
                         }
                     }).join('')}
                 </div>
