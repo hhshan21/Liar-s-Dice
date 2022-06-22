@@ -35,13 +35,13 @@ function init() {
         new User(
             'You',
             '/Images/Pirate.png',
-            false,
+            true,
             dice
         ),
         new User(
             'Davy Jones',
             '/Images/Capn.png',
-            true,
+            false,
             dice
         ),
     ]

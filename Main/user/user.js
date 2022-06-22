@@ -1,9 +1,9 @@
 export default class User {
     #diceObj;
-    constructor(name, imgUrl, isNpc, diceObj) {
+    constructor(name, imgUrl, isPlayer, diceObj) {
         this.name = name;
         this.imgUrl = imgUrl;
-        this.isNpc = isNpc
+        this.isPlayer = isPlayer
         this.#diceObj = diceObj;
         this.dice = [];
     }

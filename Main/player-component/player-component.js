@@ -4,7 +4,8 @@ export default class PlayerComponent {
         this.#user = user;
     }
   
-    render(toDisplayDieFace=false) {
+    render(toDisplayDieFace) {
+        console.log(this.#user.dice)
         return `
             <div class="player-container">
                 <figure class="img-container">
@@ -14,7 +15,7 @@ export default class PlayerComponent {
                 <div class="dice-container">
                     ${this.#user.dice.map(die => {
                         if(toDisplayDieFace) {
-                            return `<div class="die">${die.face}</div>`
+                            return `<img src="../../Images/Dice${die.face}.png"/>`
                         } else {
                             return `<div class="die">-</div>`
                         }

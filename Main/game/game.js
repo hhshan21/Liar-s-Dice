@@ -7,31 +7,44 @@ export default class Game {
     constructor() {
       // 
     }
-  
+    
+    // passed the whole class User into the addPlayer function
     addPlayer(user) {
         this.#players.push(user);
     }
   
     startGame() {
-        const playersNotMe = document.getElementById('players-not-me');
+        const computer = document.getElementById('players-not-me');
         const playerMe = document.getElementById('player-me');
   
-        let playersNotMeStr = '';
-        let playerMeStr = '';
+        let computerDiceMarkup = '';
+        let playerDiceMarkup = '';
         
         this.#players.forEach((player, ind) => {
             player.shuffleDice();
-  
+            
+            /* how come the /shuffleDice() function can be called here?
+            how come the PlayerComponent receives an argument of player? 
+            Is it because the PlayerCompanent class object received an argument from user that's why can perform "player.isNpc"?*/
             const playerComponent = new PlayerComponent(player);
-            if(player.isNpc || this.#currentPlayerTurn !== ind) {
-                playersNotMeStr += playerComponent.render();
+            // if(player.isNpc || this.#currentPlayerTurn !== ind) {
+            //     playersNotMeStr += playerComponent.render();
+            // } else {
+            //     playerMeStr += playerComponent.render(true);
+            // }
+
+            // isNpc is a boolean value
+            // .render method accepts a boolean argument whether to display dice or not
+            const isPlayer = player.isPlayer
+            if (isPlayer) {
+                playerDiceMarkup += playerComponent.render(isPlayer);
             } else {
-                playerMeStr += playerComponent.render(true);
+                computerDiceMarkup += playerComponent.render(isPlayer);
             }
         })
   
-        playersNotMe.innerHTML = playersNotMeStr;
-        playerMe.innerHTML = playerMeStr;
+        computer.innerHTML = computerDiceMarkup;
+        playerMe.innerHTML = playerDiceMarkup;
     }
   
     // displayBid(name, chosen) {
@@ -39,4 +52,9 @@ export default class Game {
     //   const str = `${name} bid: ${chosen}`
     //   dom.innerHTML = str
     // }
+
+    showMyAvailableBid() {
+        const myBidContainer = document.getElementById('my-bid-container')
+
+    }
 }
