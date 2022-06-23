@@ -5,7 +5,6 @@ export default class PlayerComponent {
     }
   
     render(toDisplayDieFace) {
-        console.log(this.#user.dice)
         return `
             <div class="player-container">
                 <figure class="img-container">

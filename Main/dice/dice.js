@@ -19,6 +19,7 @@ export default class Dice {
     // Generate a random number from 1 to 6
     getRandomDie() {
         return this.#dice[(Math.floor(Math.random() * 6))];
+        
     }
     
     
@@ -29,4 +30,5 @@ export default class Dice {
             this.#dice.push(die);
         }
     }
+
 }

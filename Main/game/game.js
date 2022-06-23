@@ -55,7 +55,8 @@ export default class Game {
 
     showMyAvailableBid() {
         const myBidContainer = document.getElementById('my-bid-container')
-        
+
+        const newBid = document.createElement('div')
 
         `<div data-face='1' data-count='1'>
             <span>1 x </span> (same as data count)
