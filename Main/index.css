@@ -62,13 +62,18 @@
     min-height: 57px;
 }
 
-#my-bid-container {
+#player-me-bid-container {
     background-color: rgb(195, 195, 195);
-    min-height: 57px
+    min-height: 57px;
+    display: flex;
 }
 
 .dice-container img {
     height: 50px;
     padding-top: 50px;
     padding-left: 10px;
+}
+
+.ind-bids img {
+    height: 30px;
 }

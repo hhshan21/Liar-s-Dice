@@ -7,7 +7,7 @@ export default class Game {
     constructor() {
         this.numOfDicePerPlayer = 5;
         this.totalDiceFace = 6;
-        this.bidChoices = this.createBidChoices()
+        this.bidChoices = this.createBidChoices();
     }
 
     createBidChoices() {
@@ -23,7 +23,7 @@ export default class Game {
                 bidChoices.push(diceBid);
             }
         }
-        return bidChoices
+        return bidChoices;
     }
 
     // passed the whole class User into the addPlayer function
@@ -69,7 +69,7 @@ export default class Game {
     // }
 
     showMyAvailableBid() {
-        const myBidContainer = document.getElementById('my-bid-container');
+        const myBidContainer = document.getElementById('player-me-bid-container');
 
         const bidChoicesMarkup = this.bidChoices
             .filter((choice) => !choice.isSelected)
@@ -79,10 +79,9 @@ export default class Game {
                     <img src="./../Images/Dice${choice.dieFace}.png"/>
                 </div> 
             `)
-            .join('')
+            .join('');
 
-        myBidContainer.innerHTML = bidChoicesMarkup
-
+        myBidContainer.innerHTML = bidChoicesMarkup;
 
         console.log(document.getElementsByClassName('ind-bids'))
         console.log(document.getElementsByClassName('ind-bids')[0])
