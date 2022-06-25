@@ -51,7 +51,8 @@ function init() {
         game.addPlayer(player);
     });
 
-    game.startGame()
+    game.startGame();
+    game.showMyAvailableBid()
 }
 
 init();

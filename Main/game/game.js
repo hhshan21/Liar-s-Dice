@@ -2,7 +2,7 @@ import PlayerComponent from "../player-component/player-component.js";
 
 export default class Game {
     #players = [];
-    #currentPlayerTurn = 2; // Index of this.#players
+    #currentPlayerTurn = 0; // Index of this.#players
   
     constructor() {
       // 
@@ -54,13 +54,54 @@ export default class Game {
     // }
 
     showMyAvailableBid() {
-        const myBidContainer = document.getElementById('my-bid-container')
+        const myBidContainer = document.getElementById('my-bid-container');
 
-        const newBid = document.createElement('div')
+        // create a bid options for player
+        const bidOptions = document.createElement('div');
+        bidOptions.setAttribute('id', 'bid-options');
+        myBidContainer.appendChild(bidOptions);
 
-        `<div data-face='1' data-count='1'>
-            <span>1 x </span> (same as data count)
-            <i data-i="6" data-ri="" class="dice die-6 small"></i>
-        </div>`
+        // create individual bid options for player to select
+        const indBidOptions = document.createElement('div');
+        indBidOptions.setAttribute('class', 'ind-bid-option');
+        indBidOptions.setAttribute('dice-count', 1);
+        indBidOptions.setAttribute('dice-face', 1);
+
+        bidOptions.appendChild(indBidOptions)
+        
+        indBidOptions.innerHTML = 
+            `<span>1 x </span>
+            <img src ="./../Images/Dice1.png"/>
+            `
+
+        
+
+        
+
+        // `<div id='bid-options'>
+        //     <div data-face='1' data-count='1'>
+        //         <span>1 x </span> (same as data count)
+        //         <i data-i="1" (same as data-face) data-ri class="dice die-6 small" (image)></i>
+        //     </div>
+        // </div>`
     }
+    
+
+    //     return `
+    //     <div class="player-container">
+    //         <figure class="img-container">
+    //             <img src="${this.#user.imgUrl}" alt="${this.#user.name}" style="width:100%">
+    //             <figcaption>${this.#user.name}</figcaption>
+    //         </figure>
+    //         <div class="dice-container">
+    //             ${this.#user.dice.map(die => {
+    //                 if(toDisplayDieFace) {
+    //                     return `<img src="../../Images/Dice${die.face}.png"/>`
+    //                 } else {
+    //                     return `<img src="../../Images/Diceqm.png"/>`
+    //                 }
+    //             }).join('')}
+    //         </div>
+    //     </div>
+    //     `
 }

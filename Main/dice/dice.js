@@ -4,7 +4,7 @@ class Die {
     }
 
     toHighlight(face) {
-        this.isHighlighted = this.face === face
+        this.isHighlighted = this.face === face;
     }
 }
 
@@ -16,14 +16,13 @@ export default class Dice {
         this.#seedDice();
     }
     
-    // Generate a random number from 1 to 6
+    // generate a random number from 1 to 6
     getRandomDie() {
         return this.#dice[(Math.floor(Math.random() * 6))];
         
     }
     
-    
-    //this is to ensure that there are only 6 die faces
+    // ensure that there are only 6 die faces
     #seedDice() {
         for(let i=1; i<= 6; i++) {
             const die = new Die(i);

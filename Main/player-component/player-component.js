@@ -5,6 +5,7 @@ export default class PlayerComponent {
     }
   
     render(toDisplayDieFace) {
+        // add player info and show dice image
         return `
             <div class="player-container">
                 <figure class="img-container">
