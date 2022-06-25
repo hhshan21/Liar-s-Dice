@@ -10,6 +10,7 @@ export default class Game {
         this.bidChoices = this.createBidChoices();
     }
 
+    // func is called once when an instance of object Game is called (based on above ppty)
     createBidChoices() {
         const bidChoices = [];
         for (let i = 1; i <= this.numOfDicePerPlayer; i++) {
@@ -43,12 +44,6 @@ export default class Game {
 
             const playerComponent = new PlayerComponent(player);
 
-            // if(player.isNpc || this.#currentPlayerTurn !== ind) {
-            //     playersNotMeStr += playerComponent.render();
-            // } else {
-            //     playerMeStr += playerComponent.render(true);
-            // }
-
             // .render method accepts a boolean argument whether to display dice or not
             const isPlayer = player.isPlayer
             if (isPlayer || this.#currentPlayerTurn == ind) {
@@ -61,12 +56,6 @@ export default class Game {
         computer.innerHTML = computerDiceMarkup;
         playerMe.innerHTML = playerDiceMarkup;
     }
-
-    // displayBid(name, chosen) {
-    //   const dom = document.getElementById('bid-container');
-    //   const str = `${name} bid: ${chosen}`
-    //   dom.innerHTML = str
-    // }
 
     showMyAvailableBid() {
         const myBidContainer = document.getElementById('player-me-bid-container');
@@ -82,13 +71,11 @@ export default class Game {
             .join('');
 
         myBidContainer.innerHTML = bidChoicesMarkup;
-
-        console.log(document.getElementsByClassName('ind-bids'))
-        console.log(document.getElementsByClassName('ind-bids')[0])
-        // .forEach(element => {
-        //     element.addEventListener('click', this.updateBid)
-        // })
-        document.getElementsByClassName('ind-bids')[0].addEventListener('click', this.updateBid)
+        
+        document.querySelectorAll('.ind-bids')
+            .forEach(bid => {
+                bid.addEventListener('click', this.updateBid)
+            })
 
         // onclick="updateDiceState(1,2)"
 
@@ -104,5 +91,10 @@ export default class Game {
         // this.showMyAvailableBid()
     }
 
+    // displayBid(name, chosen) {
+    //   const dom = document.getElementById('bid-container');
+    //   const str = `${name} bid: ${chosen}`
+    //   dom.innerHTML = str
+    // }
 
 }
