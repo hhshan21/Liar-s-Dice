@@ -58,7 +58,7 @@ export default class Game {
     }
 
     showMyAvailableBid() {
-        const myBidContainer = document.getElementById('player-me-bid-container');
+        const myBidContainer = document.getElementById('bid-options');
 
         const bidChoicesMarkup = this.bidChoices
             .filter((choice) => !choice.isSelected)
