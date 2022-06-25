@@ -53,6 +53,7 @@ function init() {
 
     game.startGame();
     game.showMyAvailableBid()
+
 }
 
 init();

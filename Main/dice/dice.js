@@ -19,7 +19,6 @@ export default class Dice {
     // generate a random number from 1 to 6
     getRandomDie() {
         return this.#dice[(Math.floor(Math.random() * 6))];
-        
     }
     
     // ensure that there are only 6 die faces

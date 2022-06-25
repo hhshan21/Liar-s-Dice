@@ -21,7 +21,8 @@ export default class User {
         this.dice.sort((prevVal, currentVal) => prevVal.face - currentVal.face)
 
         console.log(this.dice)
-    }    
-    
+        // console.log(Object.keys(this.dice).length)    
+    }
+
     
 }

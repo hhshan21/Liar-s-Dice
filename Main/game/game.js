@@ -56,52 +56,61 @@ export default class Game {
     showMyAvailableBid() {
         const myBidContainer = document.getElementById('my-bid-container');
 
-        // create a bid options for player
-        const bidOptions = document.createElement('div');
-        bidOptions.setAttribute('id', 'bid-options');
-        myBidContainer.appendChild(bidOptions);
+        // // create a bid options for player
+        // const bidOptions = document.createElement('div');
+        // bidOptions.setAttribute('id', 'bid-options');
+        // myBidContainer.appendChild(bidOptions);
 
-        // create individual bid options for player to select
-        const indBidOptions = document.createElement('div');
-        indBidOptions.setAttribute('class', 'ind-bid-option');
-        indBidOptions.setAttribute('dice-count', 1);
-        indBidOptions.setAttribute('dice-face', 1);
+        // // create individual bid options for player to select
+        // const indBidOptions = document.createElement('div');
+        // indBidOptions.setAttribute('class', 'ind-bid-option');
+        // indBidOptions.setAttribute('dice-count', 1);
+        // indBidOptions.setAttribute('dice-face', 1);
 
-        bidOptions.appendChild(indBidOptions)
+        // bidOptions.appendChild(indBidOptions)
         
-        indBidOptions.innerHTML = 
-            `<span>1 x </span>
-            <img src ="./../Images/Dice1.png"/>
-            `
-
+        // indBidOptions.innerHTML = 
+        //     `<span>1 x </span>
+        //     <img src ="./../Images/Dice1.png"/>
+        // `
         
-
+        const numOfDicePerPlayer = 5;
+        const numOfPlayer = this.#players.length;
+        const totalDiceFace = 6;
         
+        const totalNumDiceOptions  = numOfDicePerPlayer * numOfPlayer;
+        
+        const choices = [];
+        
+        for(let i=1; i<=numOfDicePerPlayer; i++) {
+            for(let j=1; j<=totalDiceFace; j++) {
+            const diceBid = {
+                numOfDice: i,
+                dieFace: j,
+                isSelected: false
+            }
+            choices.push(diceBid);
+            }
+        }
 
-        // `<div id='bid-options'>
-        //     <div data-face='1' data-count='1'>
-        //         <span>1 x </span> (same as data count)
-        //         <i data-i="1" (same as data-face) data-ri class="dice die-6 small" (image)></i>
-        //     </div>
-        // </div>`
+        console.log(choices[1].numOfDice)
+        
+        return choices.filter((choice) => choice.isSelected).map(choice => `
+            <div id="bid-options">
+                <div class="ind-bids">
+                    <span>choices....
+                    <img src="./../Images/Dice1.png"/>
+                </div>
+            </div>
+        `)
+        
+        onclick="updateDiceState(1,2)"
+        
+        function updateDiceState(numOfDice, dieFace) {
+            const choice = choices.find(choice => choice.numOfDice === numOfDice && choice.dieFace === dieFace)
+            choice.isSelected = true;
+            // return choice?
+        }
     }
     
-
-    //     return `
-    //     <div class="player-container">
-    //         <figure class="img-container">
-    //             <img src="${this.#user.imgUrl}" alt="${this.#user.name}" style="width:100%">
-    //             <figcaption>${this.#user.name}</figcaption>
-    //         </figure>
-    //         <div class="dice-container">
-    //             ${this.#user.dice.map(die => {
-    //                 if(toDisplayDieFace) {
-    //                     return `<img src="../../Images/Dice${die.face}.png"/>`
-    //                 } else {
-    //                     return `<img src="../../Images/Diceqm.png"/>`
-    //                 }
-    //             }).join('')}
-    //         </div>
-    //     </div>
-    //     `
 }
