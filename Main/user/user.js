@@ -18,9 +18,7 @@ export default class User {
         }
 
         // sort dice in ascending order
-        this.dice.sort((prevVal, currentVal) => {
-            return prevVal.face - currentVal.face
-        })
+        this.dice.sort((prevVal, currentVal) => prevVal.face - currentVal.face)
 
         console.log(this.dice)
     }    
