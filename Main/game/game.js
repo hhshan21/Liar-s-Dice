@@ -8,12 +8,20 @@ export default class Game {
         this.numOfDicePerPlayer = 5;
         this.totalDiceFace = 6;
         this.bidChoices = this.createBidChoices();
+        this.numOfPlayers = this.#players.length;
     }
 
     // func is called once when an instance of object Game is called (based on above ppty)
     createBidChoices() {
         const bidChoices = [];
-        for (let i = 1; i <= this.numOfDicePerPlayer; i++) {
+
+        const dicePerPlayer = this.numOfDicePerPlayer;
+        const numOfPlayers = 2;
+
+        const totalBidChoices = dicePerPlayer * numOfPlayers;
+
+        
+        for (let i = 1; i <= totalBidChoices; i++) {
             for (let j = 1; j <= this.totalDiceFace; j++) {
                 const diceBid = {
                     numOfDice: i,
@@ -24,6 +32,7 @@ export default class Game {
                 bidChoices.push(diceBid);
             }
         }
+
         return bidChoices;
     }
 
@@ -59,11 +68,11 @@ export default class Game {
 
     showMyAvailableBid() {
         const myBidContainer = document.getElementById('bid-options');
-
+        
         const bidChoicesMarkup = this.bidChoices
             .filter((choice) => !choice.isSelected)
             .map(choice => `
-                <div class="ind-bids">
+                <div class="ind-bids" bid-dice-count="${choice.numOfDice}" bid-dice-value="${choice.dieFace}">
                     <span>${choice.numOfDice} x </span>
                     <img src="./../Images/Dice${choice.dieFace}.png"/>
                 </div> 
@@ -83,10 +92,20 @@ export default class Game {
         //     const choice = bidChoices.find(choice => choice.numOfDice === numOfDice && choice.dieFace === dieFace)
         //     choice.isSelected = true;
         //     return choice?
+
     }
+     // end of showMyAvailableBid()
+
+
 
     updateBid() {
         console.log('updating bid')
+        
+        
+        
+       
+
+        
         // find the correct choice in this.bidChoices and update the isSelected boolean value
         // this.showMyAvailableBid()
     }
@@ -96,5 +115,27 @@ export default class Game {
     //   const str = `${name} bid: ${chosen}`
     //   dom.innerHTML = str
     // }
+
+    testDiplay() {
+        `<table>`
+        for (let i = 1; i <= totalBidChoices; i++) {
+            `<tr>
+
+            </tr>`
+            for (let j = 1; j <= this.totalDiceFace; j++) {
+                const diceBid = {
+                    numOfDice: i,
+                    dieFace: j,
+                    // if already selected, dont want it to be selected again
+                    isSelected: false
+                }
+                bidChoices.push(diceBid);
+            }
+        }
+    }
+
+    checkValid() {
+
+    }
 
 }
