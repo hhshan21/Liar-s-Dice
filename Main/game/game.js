@@ -51,11 +51,13 @@ export default class Game {
         // myTableDiv.appendChild(table)
 
         return bidChoices;
+
     }
 
     // passed the whole class User into the addPlayer function
     addPlayer(user) {
         this.#players.push(user);
+        
     }
 
     startGame() {
@@ -103,23 +105,20 @@ export default class Game {
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
                 bid.addEventListener('click', this.updateBid)
+                bid.addEventListener('click', this.isComputerTurn)
             })
 
+        // console.log(this.#players[0].name)
     }
-
-    // updateDiceState(numOfDice, dieFace) {
-    //     const choice = bidChoices.find(choice => choice.numOfDice === numOfDice && choice.dieFace === dieFace)
-    //     console.log(choice)
-    //     choice.isSelected = true;
-    //     // return choice?
 
     updateBid(event) {
 
+        console.log('updateBid')
+
         console.log(event.target.dataset.bidDiceCount)
         console.log(event.target.dataset.bidDiceValue)
-        
 
-         // hide bid options for player after bid selected
+        // hide bid options for player after bid selected
         const hideBidOptions = document.getElementById('bid-options')
 
         if (hideBidOptions.style.display === 'none') {
@@ -137,28 +136,53 @@ export default class Game {
             </div> 
         `
 
-        // enable liar button
-        const liar = document.getElementById('liar')
-        liar.disabled = false
-        
 
 
-
-        
-
-
-        
         // find the correct choice in this.bidChoices and update the isSelected boolean value
-        // this.showMyAvailableBid()
-        
     }
 
-    // displayBid(name, chosen) {
-    //   const dom = document.getElementById('bid-container');
-    //   const str = `${name} bid: ${chosen}`
-    //   dom.innerHTML = str
-    // }
-    
+    isComputerTurn(currentBid, maxBid, maxDie) {
+        
+        console.log('isComputerTurn')
+
+        const returnMap = new Map()
+
+        const computerBidOnCountOfDice = Math.floor(Math.random() * 11)
+        console.log('computerBidOnCountOfDice: ', computerBidOnCountOfDice)
+        // let the lower limit of this be the currentBid's bid
+        // let the upper limit of this be the maxBid + 1
+
+        if (computerBidOnCountOfDice === (maxBid + 1)) {
+            returnMap.set('computerBidOnCountOfDice', 0)
+            returnMap.set('diceFace', 0)
+            returnMap.set('callLiar', true)
+            return returnMap
+        } else {
+            returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
+            const diceFace = Math.floor(Math.random() * 6)
+            // lower limit = 1
+            // upper limit = max Die
+            returnMap.set('diceFace', diceFace)
+            returnMap.set('callLiar', false)
+        }
+
+
+
+        // const computerBid = document.getElementById('computer-bid')
+
+        
+
+
+        // create liar button after computer bid
+        // const liar = document.getElementById('liar')
+        // liar.disabled = false
+    }
+
+    // updateDiceState(numOfDice, dieFace) {
+    //     const choice = bidChoices.find(choice => choice.numOfDice === numOfDice && choice.dieFace === dieFace)
+    //     console.log(choice)
+    //     choice.isSelected = true;
+    //     // return choice?
 
 
 }
