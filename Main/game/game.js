@@ -136,21 +136,20 @@ export default class Game {
             </div> 
         `
 
-
-
         // find the correct choice in this.bidChoices and update the isSelected boolean value
     }
 
-    isComputerTurn(currentBid, maxBid, maxDie) {
-        
-        console.log('isComputerTurn')
+    isComputerTurn(event, maxBid, maxDie) {
+
+        const playerBid = event.target.dataset.bidDiceCount
 
         const returnMap = new Map()
 
-        const computerBidOnCountOfDice = Math.floor(Math.random() * 11)
+        const computerBidOnCountOfDice = Math.floor(Math.random() * 11) // to fix to have a range
         console.log('computerBidOnCountOfDice: ', computerBidOnCountOfDice)
         // let the lower limit of this be the currentBid's bid
         // let the upper limit of this be the maxBid + 1
+        const diceFace = Math.floor(Math.random() * 7) // to excl 0
 
         if (computerBidOnCountOfDice === (maxBid + 1)) {
             returnMap.set('computerBidOnCountOfDice', 0)
@@ -159,19 +158,21 @@ export default class Game {
             return returnMap
         } else {
             returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
-            const diceFace = Math.floor(Math.random() * 6)
             // lower limit = 1
             // upper limit = max Die
             returnMap.set('diceFace', diceFace)
             returnMap.set('callLiar', false)
         }
 
+        console.log(returnMap)
 
-
-        // const computerBid = document.getElementById('computer-bid')
-
-        
-
+        // const showSelectedBid = document.getElementById('show-selected-bid')
+        // showSelectedBid.innerHTML = `
+        //     <div class="selected-bid">
+        //         <span>${computerBidOnCountOfDice} x </span>
+        //         <img src="./../Images/Dice${diceFace}.png"/>
+        //     </div> 
+        // `
 
         // create liar button after computer bid
         // const liar = document.getElementById('liar')
