@@ -38,7 +38,6 @@ export default class Game {
                 // const btn = document.createElement('button')
                 // // document.getElementsByTagName('td').appendChild(btn)
 
-
                 const diceBid = {
                     numOfDice: i,
                     dieFace: j,
@@ -84,9 +83,10 @@ export default class Game {
         playerMe.innerHTML = playerDiceMarkup;
     }
 
-    showMyAvailableBid() {
+    showBidChoices() {
         const myBidContainer = document.getElementById('bid-options');
         
+        // filter out isSelected and showBidChoices available
         const bidChoicesMarkup = this.bidChoices
             .filter((choice) => !choice.isSelected)
             .map(choice => `
@@ -99,12 +99,11 @@ export default class Game {
 
         myBidContainer.innerHTML = bidChoicesMarkup;
         
+        // on selecting and clicking a bid, function updateBid() is called
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
                 bid.addEventListener('click', this.updateBid)
             })
-
-        // onclick="updateDiceState(1,2)"
 
     }
 
@@ -115,11 +114,12 @@ export default class Game {
     //     // return choice?
 
     updateBid(event) {
-        console.log('updating bid');
-        
+
         console.log(event.target.dataset.bidDiceCount)
         console.log(event.target.dataset.bidDiceValue)
         
+
+         // hide bid options for player after bid selected
         const hideBidOptions = document.getElementById('bid-options')
 
         if (hideBidOptions.style.display === 'none') {
@@ -127,6 +127,26 @@ export default class Game {
         } else {
             hideBidOptions.style.display = 'none';
         }
+
+        // show selected bid
+        const showSelectedBid = document.getElementById('show-selected-bid')
+        showSelectedBid.innerHTML = `
+            <div class="selected-bid">
+                <span>${event.target.dataset.bidDiceCount} x </span>
+                <img src="./../Images/Dice${event.target.dataset.bidDiceValue}.png"/>
+            </div> 
+        `
+
+        // enable liar button
+        const liar = document.getElementById('liar')
+        liar.disabled = false
+        
+
+
+
+        
+
+
         
         // find the correct choice in this.bidChoices and update the isSelected boolean value
         // this.showMyAvailableBid()
