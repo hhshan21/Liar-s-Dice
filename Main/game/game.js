@@ -92,9 +92,9 @@ export default class Game {
         const bidChoicesMarkup = this.bidChoices
             .filter((choice) => !choice.isSelected)
             .map(choice => `
-                <div class="ind-bids">
+                <div class="ind-bids" data-bid-dice-count="${choice.numOfDice}" data-bid-dice-value="${choice.dieFace}">
                     <span>${choice.numOfDice} x </span>
-                    <img src="./../Images/Dice${choice.dieFace}.png" data-bid-dice-count="${choice.numOfDice}" data-bid-dice-value="${choice.dieFace}"/>
+                    <img src="./../Images/Dice${choice.dieFace}.png"/>
                 </div> 
             `)
             .join('');
@@ -105,16 +105,16 @@ export default class Game {
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
                 bid.addEventListener('click', this.updateBid)
-                setTimeout((bid.addEventListener('click', this.isComputerTurn)), 6000)
+                bid.addEventListener('click', this.isComputerTurn)
             })
 
         // console.log(this.#players[0].name)
     }
 
     updateBid(event) {
-
-        console.log(event.target.dataset.bidDiceCount)
-        console.log(event.target.dataset.bidDiceValue)
+    
+        console.log(event.currentTarget.dataset.bidDiceCount)
+        console.log(event.currentTarget.dataset.bidDiceValue)
 
         // hide bid options for player after bid selected
         const hideBidOptions = document.getElementById('bid-options')
@@ -125,33 +125,28 @@ export default class Game {
             hideBidOptions.style.display = 'none';
         }
 
-        // show selected bid
+        // show player's selected bid
         const showSelectedBid = document.getElementById('show-selected-bid')
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
-                <span>${event.target.dataset.bidDiceCount} x </span>
-                <img src="./../Images/Dice${event.target.dataset.bidDiceValue}.png"/>
+                <span>${event.currentTarget.dataset.bidDiceCount} x </span>
+                <img src="./../Images/Dice${event.currentTarget.dataset.bidDiceValue}.png"/>
             </div> 
         `
-
         // find the correct choice in this.bidChoices and update the isSelected boolean value
     }
 
     isComputerTurn(event) {
 
-        const playerBid = event.target.dataset.bidDiceCount
-        console.log('playerBid: ', playerBid)
+        const playerBidOnDiceCount = event.currentTarget.dataset.bidDiceCount
         
-        const computerBidOnCountOfDice = getRandomInt(playerBid, 11)
-        console.log('computerBidOnCountOfDice: ', computerBidOnCountOfDice)
+        const computerBidOnCountOfDice = getRandomInt(playerBidOnDiceCount, 11)
 
-        const playerBidDiceFace = event.target.dataset.bidDiceValue
-        console.log('playerBidDiceFace: ', playerBidDiceFace)
+        const playerBidDiceFace = event.currentTarget.dataset.bidDiceValue
 
         const computerBidOnDiceFace = getRandomInt(1, 7)
-        console.log('computerBidOnDiceFace: ', computerBidOnDiceFace)
 
-        const returnMap = new Map()
+        // const returnMap = new Map()
 
         // if (computerBidOnCountOfDice === (maxBid + 1)) {
         //     returnMap.set('computerBidOnCountOfDice', 0)
@@ -164,15 +159,19 @@ export default class Game {
         //     returnMap.set('callLiar', false)
         // }
 
-        console.log(returnMap)
+        // console.log(returnMap)
 
         const showSelectedBid = document.getElementById('show-selected-bid')
-        showSelectedBid.innerHTML = `
-            <div class="selected-bid">
-                <span>${computerBidOnCountOfDice} x </span>
-                <img src="./../Images/Dice${computerBidOnDiceFace}.png"/>
-            </div> 
-        `
+        setTimeout(function() {
+            showSelectedBid.innerHTML = `
+                <div class="selected-bid">
+                    <span>${computerBidOnCountOfDice} x </span>
+                    <img src="./../Images/Dice${computerBidOnDiceFace}.png"/>
+                </div> 
+            `
+        }, 3000)
+
+        
 
         // create liar button after computer bid
         // const liar = document.getElementById('liar')
