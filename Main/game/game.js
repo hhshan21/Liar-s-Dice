@@ -139,27 +139,32 @@ export default class Game {
     isComputerTurn(event) {
 
         const playerBidOnDiceCount = event.currentTarget.dataset.bidDiceCount
+        console.log('playerBidOnDiceCount: ', playerBidOnDiceCount)
         
         const computerBidOnCountOfDice = getRandomInt(playerBidOnDiceCount, 11)
+        console.log('computerBidOnCountOfDice: ', computerBidOnCountOfDice)
 
         const playerBidDiceFace = event.currentTarget.dataset.bidDiceValue
+        console.log('playerBidDiceFace: ', playerBidDiceFace)
 
         const computerBidOnDiceFace = getRandomInt(1, 7)
+        console.log('computerBidOnDiceFace: ', computerBidOnDiceFace)
 
-        // const returnMap = new Map()
+        const returnMap = new Map()
 
-        // if (computerBidOnCountOfDice === (maxBid + 1)) {
-        //     returnMap.set('computerBidOnCountOfDice', 0)
-        //     returnMap.set('computerBidOnDiceFace', 0)
-        //     returnMap.set('callLiar', true)
-        //     return returnMap
-        // } else {
-        //     returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
-        //     returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
-        //     returnMap.set('callLiar', false)
-        // }
+        if (computerBidOnCountOfDice === playerBidOnDiceCount) {
+            // computerBidOnDiceFace = playerBidDiceFace + 1
+            returnMap.set('computerBidOnCountOfDice', 0)
+            returnMap.set('computerBidOnDiceFace', 0)
+            returnMap.set('callLiar', true)
+            return returnMap
+        } else {
+            returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
+            returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
+            returnMap.set('callLiar', false)
+        }
 
-        // console.log(returnMap)
+        console.log(returnMap)
 
         const showSelectedBid = document.getElementById('show-selected-bid')
         setTimeout(function() {
