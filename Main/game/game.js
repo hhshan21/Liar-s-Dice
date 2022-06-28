@@ -105,15 +105,13 @@ export default class Game {
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
                 bid.addEventListener('click', this.updateBid)
-                bid.addEventListener('click', this.isComputerTurn)
+                setTimeout((bid.addEventListener('click', this.isComputerTurn)), 6000)
             })
 
         // console.log(this.#players[0].name)
     }
 
     updateBid(event) {
-
-        console.log('updateBid')
 
         console.log(event.target.dataset.bidDiceCount)
         console.log(event.target.dataset.bidDiceValue)
@@ -142,25 +140,22 @@ export default class Game {
     isComputerTurn(event, maxBid, maxDie) {
 
         const playerBid = event.target.dataset.bidDiceCount
+        const computerBidOnCountOfDice = Math.floor(Math.random() * (10 - playerBid + 1) + playerBid)
+        console.log('playerBid: ', playerBid) 
+
+        const playerBidDiceFace = event.target.dataset.bidDiceValue
+        const computerBidOnDiceFace = Math.floor(Math.random() * (6 - playerBidDiceFace + 1) + playerBidDiceFace) 
 
         const returnMap = new Map()
 
-        const computerBidOnCountOfDice = Math.floor(Math.random() * 11) // to fix to have a range
-        console.log('computerBidOnCountOfDice: ', computerBidOnCountOfDice)
-        // let the lower limit of this be the currentBid's bid
-        // let the upper limit of this be the maxBid + 1
-        const diceFace = Math.floor(Math.random() * 7) // to excl 0
-
         if (computerBidOnCountOfDice === (maxBid + 1)) {
             returnMap.set('computerBidOnCountOfDice', 0)
-            returnMap.set('diceFace', 0)
+            returnMap.set('computerBidOnDiceFace', 0)
             returnMap.set('callLiar', true)
             return returnMap
         } else {
             returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
-            // lower limit = 1
-            // upper limit = max Die
-            returnMap.set('diceFace', diceFace)
+            returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
             returnMap.set('callLiar', false)
         }
 
@@ -170,7 +165,7 @@ export default class Game {
         // showSelectedBid.innerHTML = `
         //     <div class="selected-bid">
         //         <span>${computerBidOnCountOfDice} x </span>
-        //         <img src="./../Images/Dice${diceFace}.png"/>
+        //         <img src="./../Images/Dice${computerBidOnDiceFace}.png"/>
         //     </div> 
         // `
 
