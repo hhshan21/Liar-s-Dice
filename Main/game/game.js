@@ -137,37 +137,42 @@ export default class Game {
         // find the correct choice in this.bidChoices and update the isSelected boolean value
     }
 
-    isComputerTurn(event, maxBid, maxDie) {
+    isComputerTurn(event) {
 
         const playerBid = event.target.dataset.bidDiceCount
-        const computerBidOnCountOfDice = Math.floor(Math.random() * (10 - playerBid + 1) + playerBid)
-        console.log('playerBid: ', playerBid) 
+        console.log('playerBid: ', playerBid)
+        
+        const computerBidOnCountOfDice = getRandomInt(playerBid, 11)
+        console.log('computerBidOnCountOfDice: ', computerBidOnCountOfDice)
 
         const playerBidDiceFace = event.target.dataset.bidDiceValue
-        const computerBidOnDiceFace = Math.floor(Math.random() * (6 - playerBidDiceFace + 1) + playerBidDiceFace) 
+        console.log('playerBidDiceFace: ', playerBidDiceFace)
+
+        const computerBidOnDiceFace = getRandomInt(1, 7)
+        console.log('computerBidOnDiceFace: ', computerBidOnDiceFace)
 
         const returnMap = new Map()
 
-        if (computerBidOnCountOfDice === (maxBid + 1)) {
-            returnMap.set('computerBidOnCountOfDice', 0)
-            returnMap.set('computerBidOnDiceFace', 0)
-            returnMap.set('callLiar', true)
-            return returnMap
-        } else {
-            returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
-            returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
-            returnMap.set('callLiar', false)
-        }
+        // if (computerBidOnCountOfDice === (maxBid + 1)) {
+        //     returnMap.set('computerBidOnCountOfDice', 0)
+        //     returnMap.set('computerBidOnDiceFace', 0)
+        //     returnMap.set('callLiar', true)
+        //     return returnMap
+        // } else {
+        //     returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
+        //     returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
+        //     returnMap.set('callLiar', false)
+        // }
 
         console.log(returnMap)
 
-        // const showSelectedBid = document.getElementById('show-selected-bid')
-        // showSelectedBid.innerHTML = `
-        //     <div class="selected-bid">
-        //         <span>${computerBidOnCountOfDice} x </span>
-        //         <img src="./../Images/Dice${computerBidOnDiceFace}.png"/>
-        //     </div> 
-        // `
+        const showSelectedBid = document.getElementById('show-selected-bid')
+        showSelectedBid.innerHTML = `
+            <div class="selected-bid">
+                <span>${computerBidOnCountOfDice} x </span>
+                <img src="./../Images/Dice${computerBidOnDiceFace}.png"/>
+            </div> 
+        `
 
         // create liar button after computer bid
         // const liar = document.getElementById('liar')
@@ -181,4 +186,11 @@ export default class Game {
     //     // return choice?
 
 
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); 
+    //The maximum is exclusive and the minimum is inclusive
 }
