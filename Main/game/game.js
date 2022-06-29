@@ -19,11 +19,6 @@ export default class Game {
         const numOfPlayers = 2;
 
         const totalBidChoices = dicePerPlayer * numOfPlayers;
-
-        // let myTableDiv = document.getElementById('myDynamicTable')
-        // let table = document.createElement('table')
-        // let tableBody = document.createElement('tBody')
-        // table.appendChild(tableBody)
         
         for (let i = 1; i <= totalBidChoices; i++) {
             // let tr = document.createElement('tr');
@@ -31,12 +26,6 @@ export default class Game {
             // tableBody.appendChild(tr)
 
             for (let j = 1; j <= this.totalDiceFace; j++) {
-
-                // let td = document.createElement('td');
-                // td.appendChild(document.createTextNode("Bids " + i + "x" + j));
-                // tr.appendChild(td);
-                // const btn = document.createElement('button')
-                // // document.getElementsByTagName('td').appendChild(btn)
 
                 const diceBid = {
                     numOfDice: i,
@@ -47,17 +36,13 @@ export default class Game {
                 bidChoices.push(diceBid);
             }
         }
-
-        // myTableDiv.appendChild(table)
-
         return bidChoices;
-
     }
 
     // passed the whole class User into the addPlayer function
     addPlayer(user) {
+
         this.#players.push(user);
-        
     }
 
     startGame() {
@@ -112,7 +97,6 @@ export default class Game {
     }
 
     updateBidAfterPlayerFirstBid(event) {
-    
         console.log(event.currentTarget.dataset.bidDiceCount)
         console.log(event.currentTarget.dataset.bidDiceValue)
 
@@ -120,7 +104,7 @@ export default class Game {
         const hideBidOptions = document.getElementById('bid-options')
 
         if (hideBidOptions.style.display === 'none') {
-            hideBidOptions.style.display = 'block';
+            hideBidOptions.style.display = 'flex';
         } else {
             hideBidOptions.style.display = 'none';
         }
@@ -137,31 +121,44 @@ export default class Game {
     }
 
     isComputerFirstTurn(event) {
-
-        const playerBidOnDiceCount = event.currentTarget.dataset.bidDiceCount
         
-        const computerBidOnCountOfDice = getRandomNum(playerBidOnDiceCount, 11)
-        console.log('computerBidOnCountOfDice: ', computerBidOnCountOfDice)
+        const playerBidDiceCount = event.currentTarget.dataset.bidDiceCount
 
         const playerBidDiceFace = event.currentTarget.dataset.bidDiceValue
 
-        const computerBidOnDiceFace = getRandomNum(1, 7)
-        console.log('computerBidOnDiceFace: ', computerBidOnDiceFace)
+        const computerBidDiceCount = getRandomNum(playerBidDiceCount, 11)
+        console.log('computerBidDiceCount: ', computerBidDiceCount)
 
-        const returnMap = new Map()
+        const computerBidDiceFace = getRandomNum(1, 7)
+        console.log('computerBidDiceFace: ', computerBidDiceFace)
 
-        // if (computerBidOnCountOfDice === playerBidOnDiceCount) {
-        //     if (computerBidOnDiceFace <= playerBidDiceFace) {
-        //         computerBidOnDiceFace = playerBidDiceFace + 1
-        //         returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
-        //         returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
-        //         return returnMap
+        // confirmLiam is a logical representation in the backend to represent the "CALL LIAR" action for the computer
+        // const confirmLiar = 11
+
+        // const returnMap = new Map()
+
+        // if (playerBidDiceCount === confirmLiar) {
+        //     returnMap.set('computerBidDiceCount', 0)
+        //     returnMap.set('computerBidDiceFace', 0)
+        //     returnMap.set("callLiar", true);
+        
+        // } else {
+
+        //     let computerBidDiceFace = 0
+
+        //     if (playerBidDiceCount === computerBidDiceCount) {
+        //         computerBidDiceFace = getRandomNum(playerBidDiceFace + 1, 7)
+        //         returnMap.set('computerBidDiceCount', computerBidDiceCount)
+        //         returnMap.set('computerBidDiceFace', computerBidDiceFace)
+        //         returnMap.set("callLiar", false);
+
         //     } else {
-        //         returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
-        //         returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
-        //         return returnMap
+        //         returnMap.set('computerBidDiceCount', computerBidDiceCount)
+        //         returnMap.set('computerBidDiceFace', computerBidDiceFace)
+        //         returnMap.set("callLiar", false);
         //     }
-        // }
+        //     return returnMap
+        // } 
 
         // console.log(returnMap)
 
@@ -169,26 +166,31 @@ export default class Game {
         // show computer's bid and liar button
         const showSelectedBid = document.getElementById('show-selected-bid')
         const computerBid = document.getElementById('computer-bid')
+        const showBidOptions = document.getElementById('bid-options')
 
         setTimeout(function() {
             showSelectedBid.innerHTML = `
                 <div class="selected-bid">
-                    <span>${computerBidOnCountOfDice} x </span>
-                    <img src="./../Images/Dice${computerBidOnDiceFace}.png"/>
+                    <span>${computerBidDiceCount} x </span>
+                    <img src="./../Images/Dice${computerBidDiceFace}.png"/>
                 </div> 
             `
             computerBid.innerHTML = `
                 <button id="liar">Liar</button>
             `
+            showBidOptions.style.display = 'flex'
+
+            // show player's remaining bid *******************************
         }, 3000)
         
     }
 
     isLiar () {
         const liar = document.getElementById('liar')
-        const isLiar = bid.addEventListener('click', isLiar)
+        liar.addEventListener('click', function() {
+            document.getElementById('computer-bid').innerHTML = console.log('Hello')
+        })
     }
-
 
     // updateDiceState(numOfDice, dieFace) {
     //     const choice = bidChoices.find(choice => choice.numOfDice === numOfDice && choice.dieFace === dieFace)
