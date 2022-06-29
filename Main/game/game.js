@@ -85,7 +85,7 @@ export default class Game {
         playerMe.innerHTML = playerDiceMarkup;
     }
 
-    showBidChoices() {
+    showInitialBidChoices() {
         const myBidContainer = document.getElementById('bid-options');
         
         // filter out isSelected and showBidChoices available
@@ -104,14 +104,14 @@ export default class Game {
         // on selecting and clicking a bid, function updateBid() is called
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
-                bid.addEventListener('click', this.updateBid)
-                bid.addEventListener('click', this.isComputerTurn)
+                bid.addEventListener('click', this.updateBidAfterPlayerFirstBid)
+                bid.addEventListener('click', this.isComputerFirstTurn)
             })
 
         // console.log(this.#players[0].name)
     }
 
-    updateBid(event) {
+    updateBidAfterPlayerFirstBid(event) {
     
         console.log(event.currentTarget.dataset.bidDiceCount)
         console.log(event.currentTarget.dataset.bidDiceValue)
@@ -136,37 +136,40 @@ export default class Game {
         // find the correct choice in this.bidChoices and update the isSelected boolean value
     }
 
-    isComputerTurn(event) {
+    isComputerFirstTurn(event) {
 
         const playerBidOnDiceCount = event.currentTarget.dataset.bidDiceCount
-        console.log('playerBidOnDiceCount: ', playerBidOnDiceCount)
         
-        const computerBidOnCountOfDice = getRandomInt(playerBidOnDiceCount, 11)
+        const computerBidOnCountOfDice = getRandomNum(playerBidOnDiceCount, 11)
         console.log('computerBidOnCountOfDice: ', computerBidOnCountOfDice)
 
         const playerBidDiceFace = event.currentTarget.dataset.bidDiceValue
-        console.log('playerBidDiceFace: ', playerBidDiceFace)
 
-        const computerBidOnDiceFace = getRandomInt(1, 7)
+        const computerBidOnDiceFace = getRandomNum(1, 7)
         console.log('computerBidOnDiceFace: ', computerBidOnDiceFace)
 
         const returnMap = new Map()
 
-        if (computerBidOnCountOfDice === playerBidOnDiceCount) {
-            // computerBidOnDiceFace = playerBidDiceFace + 1
-            returnMap.set('computerBidOnCountOfDice', 0)
-            returnMap.set('computerBidOnDiceFace', 0)
-            returnMap.set('callLiar', true)
-            return returnMap
-        } else {
-            returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
-            returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
-            returnMap.set('callLiar', false)
-        }
+        // if (computerBidOnCountOfDice === playerBidOnDiceCount) {
+        //     if (computerBidOnDiceFace <= playerBidDiceFace) {
+        //         computerBidOnDiceFace = playerBidDiceFace + 1
+        //         returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
+        //         returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
+        //         return returnMap
+        //     } else {
+        //         returnMap.set('computerBidOnCountOfDice', computerBidOnCountOfDice)
+        //         returnMap.set('computerBidOnDiceFace', computerBidOnDiceFace)
+        //         return returnMap
+        //     }
+        // }
 
-        console.log(returnMap)
+        // console.log(returnMap)
 
+
+        // show computer's bid and liar button
         const showSelectedBid = document.getElementById('show-selected-bid')
+        const computerBid = document.getElementById('computer-bid')
+
         setTimeout(function() {
             showSelectedBid.innerHTML = `
                 <div class="selected-bid">
@@ -174,14 +177,18 @@ export default class Game {
                     <img src="./../Images/Dice${computerBidOnDiceFace}.png"/>
                 </div> 
             `
+            computerBid.innerHTML = `
+                <button id="liar">Liar</button>
+            `
         }, 3000)
-
         
-
-        // create liar button after computer bid
-        // const liar = document.getElementById('liar')
-        // liar.disabled = false
     }
+
+    isLiar () {
+        const liar = document.getElementById('liar')
+        const isLiar = bid.addEventListener('click', isLiar)
+    }
+
 
     // updateDiceState(numOfDice, dieFace) {
     //     const choice = bidChoices.find(choice => choice.numOfDice === numOfDice && choice.dieFace === dieFace)
@@ -189,10 +196,9 @@ export default class Game {
     //     choice.isSelected = true;
     //     // return choice?
 
-
 }
 
-function getRandomInt(min, max) {
+function getRandomNum(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); 
