@@ -21,10 +21,7 @@ export default class Game {
         const totalBidChoices = dicePerPlayer * numOfPlayers;
         
         for (let i = 1; i <= totalBidChoices; i++) {
-            // let tr = document.createElement('tr');
-            
-            // tableBody.appendChild(tr)
-
+    
             for (let j = 1; j <= this.totalDiceFace; j++) {
 
                 const diceBid = {
@@ -41,7 +38,6 @@ export default class Game {
 
     // passed the whole class User into the addPlayer function
     addPlayer(user) {
-
         this.#players.push(user);
     }
 
@@ -70,7 +66,7 @@ export default class Game {
         playerMe.innerHTML = playerDiceMarkup;
     }
 
-    showInitialBidChoices() {
+    showPlayerBidChoices() {
         const myBidContainer = document.getElementById('bid-options');
         
         // filter out isSelected and showBidChoices available
@@ -89,14 +85,16 @@ export default class Game {
         // on selecting and clicking a bid, function updateBid() is called
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
-                bid.addEventListener('click', this.updateBidAfterPlayerFirstBid)
-                bid.addEventListener('click', this.isComputerFirstTurn)
+                bid.addEventListener('click', this.updateBid)
+                bid.addEventListener('click', this.isComputerTurn)
             })
 
         // console.log(this.#players[0].name)
+        
     }
 
-    updateBidAfterPlayerFirstBid(event) {
+    updateBid(event) {
+
         console.log(event.currentTarget.dataset.bidDiceCount)
         console.log(event.currentTarget.dataset.bidDiceValue)
 
@@ -117,10 +115,11 @@ export default class Game {
                 <img src="./../Images/Dice${event.currentTarget.dataset.bidDiceValue}.png"/>
             </div> 
         `
+
         // find the correct choice in this.bidChoices and update the isSelected boolean value
     }
 
-    isComputerFirstTurn(event) {
+    isComputerTurn(event) {
         
         const playerBidDiceCount = event.currentTarget.dataset.bidDiceCount
 
@@ -131,36 +130,6 @@ export default class Game {
 
         const computerBidDiceFace = getRandomNum(1, 7)
         console.log('computerBidDiceFace: ', computerBidDiceFace)
-
-        // confirmLiam is a logical representation in the backend to represent the "CALL LIAR" action for the computer
-        // const confirmLiar = 11
-
-        // const returnMap = new Map()
-
-        // if (playerBidDiceCount === confirmLiar) {
-        //     returnMap.set('computerBidDiceCount', 0)
-        //     returnMap.set('computerBidDiceFace', 0)
-        //     returnMap.set("callLiar", true);
-        
-        // } else {
-
-        //     let computerBidDiceFace = 0
-
-        //     if (playerBidDiceCount === computerBidDiceCount) {
-        //         computerBidDiceFace = getRandomNum(playerBidDiceFace + 1, 7)
-        //         returnMap.set('computerBidDiceCount', computerBidDiceCount)
-        //         returnMap.set('computerBidDiceFace', computerBidDiceFace)
-        //         returnMap.set("callLiar", false);
-
-        //     } else {
-        //         returnMap.set('computerBidDiceCount', computerBidDiceCount)
-        //         returnMap.set('computerBidDiceFace', computerBidDiceFace)
-        //         returnMap.set("callLiar", false);
-        //     }
-        //     return returnMap
-        // } 
-
-        // console.log(returnMap)
 
 
         // show computer's bid and liar button
@@ -179,8 +148,6 @@ export default class Game {
                 <button id="liar">Liar</button>
             `
             showBidOptions.style.display = 'flex'
-
-            // show player's remaining bid *******************************
         }, 3000)
         
     }

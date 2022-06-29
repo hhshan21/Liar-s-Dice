@@ -52,7 +52,7 @@ function init() {
     });
 
     game.startGame();
-    game.showInitialBidChoices()
+    game.showPlayerBidChoices()
 
 }
 
