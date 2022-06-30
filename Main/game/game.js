@@ -121,6 +121,7 @@ export default class Game {
             </div> 
         `
 
+        // computer logic here to be updated as it only works for dice with diceValue of 6
         const bidChoices = this.bidChoices
         const maxBid = 10
         console.log(bidChoices)
@@ -145,6 +146,8 @@ export default class Game {
 
     isComputerTurn(event) {
         
+        // to update the isComputerTurn with available choices based on above function
+
         const playerDiceCount = event.currentTarget.dataset.bidDiceCount
 
         const playerDiceFace = event.currentTarget.dataset.bidDiceValue
@@ -177,6 +180,8 @@ export default class Game {
     }
 
     clickLiar() {
+        
+        // to update clickLiar function, only pseudo code have been entered here
         
         const liarBtn = document.getElementById('id')
         const dicesImg = document.getElementsByClassName('dice-imgs')
