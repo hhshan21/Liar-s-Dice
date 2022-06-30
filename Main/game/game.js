@@ -144,7 +144,7 @@ export default class Game {
     }
 
     isComputerTurn(event) {
-        console.log(this.isComputerTurn)
+        
         const playerDiceCount = event.currentTarget.dataset.bidDiceCount
 
         const playerDiceFace = event.currentTarget.dataset.bidDiceValue
@@ -171,7 +171,23 @@ export default class Game {
                 <button id="liar">Liar</button>
             `
             showBidOptions.style.display = 'flex'
+            
         }, 3000)
+        
+    }
+
+    clickLiar() {
+        
+        const liarBtn = document.getElementById('id')
+        const dicesImg = document.getElementsByClassName('dice-imgs')
+        liarBtn.addEventListener('click', {
+            // show DJ's dice and highlight the dice number
+            // highlight "you's" dice number
+            // if DJ call more dice count than actual dice count, DJ lose
+            // if You call more dice count than actual dice count, You lose
+            
+            // alert("DJ/You win/lose!", window.location.reload())
+        })
         
     }
 

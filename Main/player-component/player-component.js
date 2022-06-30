@@ -15,9 +15,9 @@ export default class PlayerComponent {
                 <div class="dice-container">
                     ${this.#user.dice.map(die => {
                         if(toDisplayDieFace) {
-                            return `<img src="../../Images/Dice${die.face}.png"/>`
+                            return `<img class="dice-imgs" src="../../Images/Dice${die.face}.png"/>`
                         } else {
-                            return `<img src="../../Images/Diceqm.png"/>`
+                            return `<img class="dice-imgs" src="../../Images/Diceqm.png"/>`
                         }
                     }).join('')}
                 </div>
