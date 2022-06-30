@@ -92,8 +92,6 @@ export default class Game {
                     this.showSelectedBid(bidDiceCount, bidDiceValue)
                     this.isComputerTurn(event)
                 });
-
-                // bid.addEventListener('click', this.isComputerTurn);
             })
 
         // console.log(this.#players[0].name)
@@ -137,10 +135,10 @@ export default class Game {
         const computerDiceFace = getRandomNum(1, 7);
         console.log('computerBidDiceFace: ', computerDiceFace);
 
-         // computer logic here
+         // available computer choices
          const bidChoices = this.bidChoices;
 
-         const availableChoices = bidChoices
+         const comAvailableChoices = bidChoices
              .filter (choice => {
                  // if numOfDice is the same as diceCount, then look at dieFace value
                  if (choice.numOfDice > playerDiceCount) {
@@ -151,8 +149,9 @@ export default class Game {
                  }
              }
          )
-         console.log('availableChoices: ', availableChoices);
+         console.log('availableChoices: ', comAvailableChoices);
          
+         // to settle computer random selection from comAvailableChoices array
          // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
          // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
          // console.log(computerNextBid)
@@ -180,7 +179,7 @@ export default class Game {
 
     clickLiar() {
         
-        // to update clickLiar function, only pseudo code have been entered here
+        // to update clickLiar function, only pseudo code have been entered here 
         
         const liarBtn = document.getElementById('id');
         const dicesImg = document.getElementsByClassName('dice-imgs');
