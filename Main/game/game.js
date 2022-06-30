@@ -87,7 +87,7 @@ export default class Game {
         // on selecting and clicking a bid, function showSelectedBid() is called
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
-                bid.addEventListener("click", (event) => {
+                bid.addEventListener('click', (event) => {
                     const {bidDiceCount, bidDiceValue} = event.currentTarget.dataset
                     this.showSelectedBid(bidDiceCount, bidDiceValue)
                 });
@@ -115,6 +115,7 @@ export default class Game {
         const showSelectedBid = document.getElementById('show-selected-bid')
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
+                <p>${this.#players[0].name} selected </p>
                 <span>${diceCount} x </span>
                 <img src="./../Images/Dice${diceValue}.png"/>
             </div> 
@@ -132,7 +133,6 @@ export default class Game {
                         return true
                     }
                 }
-                    
             }
         )
         console.log(availableChoices)
@@ -140,11 +140,11 @@ export default class Game {
         // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
         // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
         // console.log(computerNextBid)
-
+        
     }
 
     isComputerTurn(event) {
-        
+        console.log(this.isComputerTurn)
         const playerDiceCount = event.currentTarget.dataset.bidDiceCount
 
         const playerDiceFace = event.currentTarget.dataset.bidDiceValue
@@ -173,13 +173,6 @@ export default class Game {
             showBidOptions.style.display = 'flex'
         }, 3000)
         
-    }
-
-    isLiar () {
-        const liar = document.getElementById('liar')
-        liar.addEventListener('click', function() {
-            document.getElementById('computer-bid').innerHTML = console.log('Hello')
-        })
     }
 
     // updateDiceState(numOfDice, dieFace) {
