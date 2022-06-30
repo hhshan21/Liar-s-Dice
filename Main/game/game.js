@@ -124,19 +124,26 @@ export default class Game {
         // computer logic here to be updated as it only works for dice with diceValue of 6
         const bidChoices = this.bidChoices;
         const maxBid = 10;
-        console.log(bidChoices);
+        
+        console.log('bidChoices: ', bidChoices);
+
         const availableChoices = bidChoices
             .filter (choice => {
+                // if numOfDice is the same as diceCount, then look at dieFace value
                 if (choice.numOfDice > diceCount) {
-                    return true;
-                } else {
-                    if (choice.dieFace > diceValue) {
-                        return true;
-                    }
+                    return true
+                    
+                }
+                console.log('diceCount: ', diceCount)
+                console.log('choice.numOfDice:' ,choice.numOfDice)
+                console.log(typeof(diceValue))
+                if (parseInt(choice.numOfDice) === parseInt(diceCount) && parseInt(choice.dieFace) > parseInt(diceValue)) {
+                    return true; 
                 }
             }
         )
-        console.log(availableChoices);
+        console.log('availableChoices: ', availableChoices);
+        
 
         // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
         // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
