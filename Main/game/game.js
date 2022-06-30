@@ -131,12 +131,9 @@ export default class Game {
             .filter (choice => {
                 // if numOfDice is the same as diceCount, then look at dieFace value
                 if (choice.numOfDice > diceCount) {
-                    return true
-                    
+                    return true    
                 }
-                console.log('diceCount: ', diceCount)
-                console.log('choice.numOfDice:' ,choice.numOfDice)
-                console.log(typeof(diceValue))
+                
                 if (parseInt(choice.numOfDice) === parseInt(diceCount) && parseInt(choice.dieFace) > parseInt(diceValue)) {
                     return true; 
                 }
