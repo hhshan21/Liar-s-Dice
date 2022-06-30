@@ -13,6 +13,7 @@ export default class Game {
 
     // func is called once when an instance of object Game is called (based on above ppty)
     createBidChoices() {
+        
         const bidChoices = [];
 
         const dicePerPlayer = this.numOfDicePerPlayer;
@@ -34,6 +35,7 @@ export default class Game {
             }
         }
         return bidChoices;
+
     }
 
     // passed the whole class User into the addPlayer function
@@ -69,7 +71,7 @@ export default class Game {
     showPlayerBidChoices() {
         const myBidContainer = document.getElementById('bid-options');
         
-        // filter out isSelected and showBidChoices available
+        // filter out isSelected and showPlayerBidChoices available
         const bidChoicesMarkup = this.bidChoices
             .filter((choice) => !choice.isSelected)
             .map(choice => `
@@ -82,32 +84,35 @@ export default class Game {
 
         myBidContainer.innerHTML = bidChoicesMarkup;
         
-        // on selecting and clicking a bid, function updateBid() is called
+        // on selecting and clicking a bid, function showSelectedBid() is called
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
-                bid.addEventListener('click', this.updateBid)
+                bid.addEventListener('click', this.showSelectedBid)
                 bid.addEventListener('click', this.isComputerTurn)
             })
 
         // console.log(this.#players[0].name)
         
+        console.log(this.bidChoices)
     }
 
-    updateBid(event) {
+    showSelectedBid(event) {
 
+        console.log(this.bidChoices)
+        
         console.log(event.currentTarget.dataset.bidDiceCount)
         console.log(event.currentTarget.dataset.bidDiceValue)
 
         // hide bid options for player after bid selected
-        const hideBidOptions = document.getElementById('bid-options')
+        const bidOptions = document.getElementById('bid-options')
 
-        if (hideBidOptions.style.display === 'none') {
-            hideBidOptions.style.display = 'flex';
+        if (bidOptions.style.display === 'none') {
+            bidOptions.style.display = 'flex';
         } else {
-            hideBidOptions.style.display = 'none';
+            bidOptions.style.display = 'none';
         }
 
-        // show player's selected bid
+        // show player's bid in selected bid div
         const showSelectedBid = document.getElementById('show-selected-bid')
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
