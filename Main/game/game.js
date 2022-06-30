@@ -135,26 +135,26 @@ export default class Game {
         const computerDiceFace = getRandomNum(1, 7);
         console.log('computerBidDiceFace: ', computerDiceFace);
 
-         // available computer choices
-         const bidChoices = this.bidChoices;
+        // available computer choices
+        const bidChoices = this.bidChoices;
 
-         const comAvailableChoices = bidChoices
+        const comAvailableChoices = bidChoices
              .filter (choice => {
-                 // if numOfDice is the same as diceCount, then look at dieFace value
-                 if (choice.numOfDice > playerDiceCount) {
-                     return true    
-                 }
-                 if (parseInt(choice.numOfDice) === parseInt(playerDiceCount) && parseInt(choice.dieFace) > parseInt(playerDiceFace)) {
-                     return true; 
-                 }
-             }
-         )
-         console.log('availableChoices: ', comAvailableChoices);
+                // if numOfDice is the same as diceCount, then look at dieFace value
+                if (choice.numOfDice > playerDiceCount) {
+                    return true    
+                }
+                if (parseInt(choice.numOfDice) === parseInt(playerDiceCount) && parseInt(choice.dieFace) > parseInt(playerDiceFace)) {
+                    return true; 
+                }
+            }
+        )
+        console.log('availableChoices: ', comAvailableChoices);
          
-         // to settle computer random selection from comAvailableChoices array
-         // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
-         // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
-         // console.log(computerNextBid)
+        // to settle computer random selection from comAvailableChoices array
+        // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
+        // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
+        // console.log(computerNextBid)
 
         // show computer's bid and liar button
         const showSelectedBid = document.getElementById('show-selected-bid');
