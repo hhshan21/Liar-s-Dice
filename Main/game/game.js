@@ -91,7 +91,7 @@ export default class Game {
                     const {bidDiceCount, bidDiceValue} = event.currentTarget.dataset
                     this.showSelectedBid(bidDiceCount, bidDiceValue)
                 });
-                bid.addEventListener('click', this.isComputerTurn)
+                bid.addEventListener('click', this.isComputerTurn);
             })
 
         // console.log(this.#players[0].name)
@@ -99,11 +99,11 @@ export default class Game {
 
     showSelectedBid(diceCount, diceValue) {
 
-        console.log('diceCount: ', diceCount)
-        console.log('diceValue: ', diceValue)
+        console.log('diceCount: ', diceCount);
+        console.log('diceValue: ', diceValue);
 
         // hide bid options for player after bid selected
-        const bidOptions = document.getElementById('bid-options')
+        const bidOptions = document.getElementById('bid-options');
 
         if (bidOptions.style.display === 'none') {
             bidOptions.style.display = 'flex';
@@ -112,31 +112,31 @@ export default class Game {
         }
 
         // show player's bid in selected bid div
-        const showSelectedBid = document.getElementById('show-selected-bid')
+        const showSelectedBid = document.getElementById('show-selected-bid');
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
                 <p>${this.#players[0].name} selected </p>
                 <span>${diceCount} x </span>
                 <img src="./../Images/Dice${diceValue}.png"/>
             </div> 
-        `
+        `;
 
         // computer logic here to be updated as it only works for dice with diceValue of 6
-        const bidChoices = this.bidChoices
-        const maxBid = 10
-        console.log(bidChoices)
+        const bidChoices = this.bidChoices;
+        const maxBid = 10;
+        console.log(bidChoices);
         const availableChoices = bidChoices
             .filter (choice => {
                 if (choice.numOfDice > diceCount) {
-                    return true
+                    return true;
                 } else {
                     if (choice.dieFace > diceValue) {
-                        return true
+                        return true;
                     }
                 }
             }
         )
-        console.log(availableChoices)
+        console.log(availableChoices);
 
         // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
         // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
@@ -148,20 +148,20 @@ export default class Game {
         
         // to update the isComputerTurn with available choices based on above function
 
-        const playerDiceCount = event.currentTarget.dataset.bidDiceCount
+        const playerDiceCount = event.currentTarget.dataset.bidDiceCount;
 
-        const playerDiceFace = event.currentTarget.dataset.bidDiceValue
+        const playerDiceFace = event.currentTarget.dataset.bidDiceValue;
 
-        const computerDiceCount = getRandomNum(playerDiceCount, 11)
-        console.log('computerBidDiceCount: ', computerDiceCount)
+        const computerDiceCount = getRandomNum(playerDiceCount, 11);
+        console.log('computerBidDiceCount: ', computerDiceCount);
 
-        const computerDiceFace = getRandomNum(1, 7)
-        console.log('computerBidDiceFace: ', computerDiceFace)
+        const computerDiceFace = getRandomNum(1, 7);
+        console.log('computerBidDiceFace: ', computerDiceFace);
 
         // show computer's bid and liar button
-        const showSelectedBid = document.getElementById('show-selected-bid')
-        const computerBid = document.getElementById('computer-bid')
-        const showBidOptions = document.getElementById('bid-options')
+        const showSelectedBid = document.getElementById('show-selected-bid');
+        const computerBid = document.getElementById('computer-bid');
+        const showBidOptions = document.getElementById('bid-options');
 
         setTimeout(function() {
             showSelectedBid.innerHTML = `
@@ -169,11 +169,11 @@ export default class Game {
                     <span>${computerDiceCount} x </span>
                     <img src="./../Images/Dice${computerDiceFace}.png"/>
                 </div> 
-            `
+            `;
             computerBid.innerHTML = `
                 <button id="liar">Liar</button>
-            `
-            showBidOptions.style.display = 'flex'
+            `;
+            showBidOptions.style.display = 'flex';
             
         }, 3000)
         
@@ -183,8 +183,8 @@ export default class Game {
         
         // to update clickLiar function, only pseudo code have been entered here
         
-        const liarBtn = document.getElementById('id')
-        const dicesImg = document.getElementsByClassName('dice-imgs')
+        const liarBtn = document.getElementById('id');
+        const dicesImg = document.getElementsByClassName('dice-imgs');
         liarBtn.addEventListener('click', {
             // show DJ's dice and highlight the dice number
             // highlight "you's" dice number
