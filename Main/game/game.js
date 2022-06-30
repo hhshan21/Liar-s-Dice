@@ -87,21 +87,24 @@ export default class Game {
         // on selecting and clicking a bid, function showSelectedBid() is called
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
-                bid.addEventListener('click', this.showSelectedBid)
+                bid.addEventListener("click", (event) => {
+                    const { bidDiceCount, bidDiceValue } = event.currentTarget.dataset
+                    this.showSelectedBid(bidDiceCount, bidDiceValue)
+                });
                 bid.addEventListener('click', this.isComputerTurn)
             })
 
         // console.log(this.#players[0].name)
         
-        console.log(this.bidChoices)
+        
     }
 
-    showSelectedBid(event) {
+    showSelectedBid(diceCount, diceValue) {
 
         console.log(this.bidChoices)
-        
-        console.log(event.currentTarget.dataset.bidDiceCount)
-        console.log(event.currentTarget.dataset.bidDiceValue)
+
+        console.log('diceCount: ', diceCount)
+        console.log('diceValue: ', diceValue)
 
         // hide bid options for player after bid selected
         const bidOptions = document.getElementById('bid-options')
@@ -116,8 +119,8 @@ export default class Game {
         const showSelectedBid = document.getElementById('show-selected-bid')
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
-                <span>${event.currentTarget.dataset.bidDiceCount} x </span>
-                <img src="./../Images/Dice${event.currentTarget.dataset.bidDiceValue}.png"/>
+                <span>${diceCount} x </span>
+                <img src="./../Images/Dice${diceValue}.png"/>
             </div> 
         `
 
@@ -126,16 +129,15 @@ export default class Game {
 
     isComputerTurn(event) {
         
-        const playerBidDiceCount = event.currentTarget.dataset.bidDiceCount
+        const playerDiceCount = event.currentTarget.dataset.bidDiceCount
 
-        const playerBidDiceFace = event.currentTarget.dataset.bidDiceValue
+        const playerDiceFace = event.currentTarget.dataset.bidDiceValue
 
-        const computerBidDiceCount = getRandomNum(playerBidDiceCount, 11)
-        console.log('computerBidDiceCount: ', computerBidDiceCount)
+        const computerDiceCount = getRandomNum(playerDiceCount, 11)
+        console.log('computerBidDiceCount: ', computerDiceCount)
 
-        const computerBidDiceFace = getRandomNum(1, 7)
-        console.log('computerBidDiceFace: ', computerBidDiceFace)
-
+        const computerDiceFace = getRandomNum(1, 7)
+        console.log('computerBidDiceFace: ', computerDiceFace)
 
         // show computer's bid and liar button
         const showSelectedBid = document.getElementById('show-selected-bid')
@@ -145,8 +147,8 @@ export default class Game {
         setTimeout(function() {
             showSelectedBid.innerHTML = `
                 <div class="selected-bid">
-                    <span>${computerBidDiceCount} x </span>
-                    <img src="./../Images/Dice${computerBidDiceFace}.png"/>
+                    <span>${computerDiceCount} x </span>
+                    <img src="./../Images/Dice${computerDiceFace}.png"/>
                 </div> 
             `
             computerBid.innerHTML = `
