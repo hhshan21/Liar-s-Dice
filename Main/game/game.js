@@ -129,16 +129,10 @@ export default class Game {
 
         const playerDiceFace = event.currentTarget.dataset.bidDiceValue;
 
-        const computerDiceCount = getRandomNum(playerDiceCount, 11);
-        console.log('computerBidDiceCount: ', computerDiceCount);
-
-        const computerDiceFace = getRandomNum(1, 7);
-        console.log('computerBidDiceFace: ', computerDiceFace);
-
         // available computer choices
         const bidChoices = this.bidChoices;
 
-        const comAvailableChoices = bidChoices
+        const computerAvailableChoices = bidChoices
              .filter (choice => {
                 // if numOfDice is the same as diceCount, then look at dieFace value
                 if (choice.numOfDice > playerDiceCount) {
@@ -149,12 +143,16 @@ export default class Game {
                 }
             }
         )
-        console.log('availableChoices: ', comAvailableChoices);
-         
-        // to settle computer random selection from comAvailableChoices array
-        // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
-        // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
-        // console.log(computerNextBid)
+        console.log('availableChoices: ', computerAvailableChoices);
+        const randInd = getRandomNum(0, computerAvailableChoices.length);
+        const computerNextBid = computerAvailableChoices[randInd];
+        console.log('computerNextBid: ', computerNextBid);
+
+        const computerDiceCount = computerNextBid.numOfDice;
+        console.log('computerBidDiceCount: ', computerDiceCount);
+
+        const computerDiceFace = computerNextBid.dieFace;
+        console.log('computerBidDiceFace: ', computerDiceFace);
 
         // show computer's bid and liar button
         const showSelectedBid = document.getElementById('show-selected-bid');
