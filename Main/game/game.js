@@ -90,8 +90,10 @@ export default class Game {
                 bid.addEventListener('click', (event) => {
                     const {bidDiceCount, bidDiceValue} = event.currentTarget.dataset
                     this.showSelectedBid(bidDiceCount, bidDiceValue)
+                    this.isComputerTurn(event)
                 });
-                bid.addEventListener('click', this.isComputerTurn);
+
+                // bid.addEventListener('click', this.isComputerTurn);
             })
 
         // console.log(this.#players[0].name)
@@ -119,38 +121,11 @@ export default class Game {
                 <span>${diceCount} x </span>
                 <img src="./../Images/Dice${diceValue}.png"/>
             </div> 
-        `;
-
-        // computer logic here to be updated as it only works for dice with diceValue of 6
-        const bidChoices = this.bidChoices;
-        const maxBid = 10;
-        
-        console.log('bidChoices: ', bidChoices);
-
-        const availableChoices = bidChoices
-            .filter (choice => {
-                // if numOfDice is the same as diceCount, then look at dieFace value
-                if (choice.numOfDice > diceCount) {
-                    return true    
-                }
-                
-                if (parseInt(choice.numOfDice) === parseInt(diceCount) && parseInt(choice.dieFace) > parseInt(diceValue)) {
-                    return true; 
-                }
-            }
-        )
-        console.log('availableChoices: ', availableChoices);
-        
-
-        // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
-        // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
-        // console.log(computerNextBid)
+        `;       
         
     }
 
     isComputerTurn(event) {
-        
-        // to update the isComputerTurn with available choices based on above function
 
         const playerDiceCount = event.currentTarget.dataset.bidDiceCount;
 
@@ -161,6 +136,26 @@ export default class Game {
 
         const computerDiceFace = getRandomNum(1, 7);
         console.log('computerBidDiceFace: ', computerDiceFace);
+
+         // computer logic here
+         const bidChoices = this.bidChoices;
+
+         const availableChoices = bidChoices
+             .filter (choice => {
+                 // if numOfDice is the same as diceCount, then look at dieFace value
+                 if (choice.numOfDice > playerDiceCount) {
+                     return true    
+                 }
+                 if (parseInt(choice.numOfDice) === parseInt(playerDiceCount) && parseInt(choice.dieFace) > parseInt(playerDiceFace)) {
+                     return true; 
+                 }
+             }
+         )
+         console.log('availableChoices: ', availableChoices);
+         
+         // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
+         // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
+         // console.log(computerNextBid)
 
         // show computer's bid and liar button
         const showSelectedBid = document.getElementById('show-selected-bid');
@@ -199,13 +194,6 @@ export default class Game {
         })
         
     }
-
-    // updateDiceState(numOfDice, dieFace) {
-    //     const choice = bidChoices.find(choice => choice.numOfDice === numOfDice && choice.dieFace === dieFace)
-    //     console.log(choice)
-    //     choice.isSelected = true;
-    //     // return choice?
-
 }
 
 function getRandomNum(min, max) {
