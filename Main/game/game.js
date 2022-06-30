@@ -35,7 +35,6 @@ export default class Game {
             }
         }
         return bidChoices;
-
     }
 
     // passed the whole class User into the addPlayer function
@@ -90,7 +89,8 @@ export default class Game {
                 bid.addEventListener('click', (event) => {
                     const {bidDiceCount, bidDiceValue} = event.currentTarget.dataset
                     this.showSelectedBid(bidDiceCount, bidDiceValue)
-                    this.isComputerTurn(event)
+                    this.updateBidChoices(bidDiceCount, bidDiceValue);
+                    this.invokeComputerTurn(bidDiceCount, bidDiceValue);
                 });
             })
 
@@ -123,26 +123,13 @@ export default class Game {
         
     }
 
-    isComputerTurn(event) {
-
-        const playerDiceCount = event.currentTarget.dataset.bidDiceCount;
-
-        const playerDiceFace = event.currentTarget.dataset.bidDiceValue;
+    invokeComputerTurn() {
 
         // available computer choices
-        const bidChoices = this.bidChoices;
+        const computerAvailableChoices = this.bidChoices.filter(
+            (choice) => !choice.isSelected
+        );
 
-        const computerAvailableChoices = bidChoices
-             .filter (choice => {
-                // if numOfDice is the same as diceCount, then look at dieFace value
-                if (choice.numOfDice > playerDiceCount) {
-                    return true    
-                }
-                if (parseInt(choice.numOfDice) === parseInt(playerDiceCount) && parseInt(choice.dieFace) > parseInt(playerDiceFace)) {
-                    return true; 
-                }
-            }
-        )
         console.log('availableChoices: ', computerAvailableChoices);
         const randInd = getRandomNum(0, computerAvailableChoices.length);
         const computerNextBid = computerAvailableChoices[randInd];
@@ -153,6 +140,8 @@ export default class Game {
 
         const computerDiceFace = computerNextBid.dieFace;
         console.log('computerBidDiceFace: ', computerDiceFace);
+
+        this.updateBidChoices(computerDiceCount, computerDiceFace)
 
         // show computer's bid and liar button
         const showSelectedBid = document.getElementById('show-selected-bid');
@@ -170,9 +159,33 @@ export default class Game {
                 <button id="liar">Liar</button>
             `;
             showBidOptions.style.display = 'flex';
-            
         }, 3000)
+
+        this.showPlayerBidChoices();
         
+    }
+
+    updateBidChoices(diceCount, diceValue) {
+        this.bidChoices = this.bidChoices.map((bidChoice) => {
+            let updatedChoiceIsSelectedKey = false;
+
+            // if numOfDice is the same as diceCount, then look at dieFace value
+            if (bidChoice.numOfDice < diceCount) {
+                updatedChoiceIsSelectedKey = true;
+            }
+
+            if (
+                parseInt(bidChoice.numOfDice) === parseInt(diceCount) && 
+                parseInt(bidChoice.dieFace) <= parseInt(diceValue)
+            ) {
+                updatedChoiceIsSelectedKey = true;
+            }
+
+            return {
+                ...bidChoice,
+                isSelected: updatedChoiceIsSelectedKey,
+            };
+        });
     }
 
     clickLiar() {
