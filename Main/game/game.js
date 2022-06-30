@@ -93,8 +93,6 @@ export default class Game {
                     this.invokeComputerTurn(bidDiceCount, bidDiceValue);
                 });
             })
-
-        // console.log(this.#players[0].name)
     }
 
     showSelectedBid(diceCount, diceValue) {
@@ -120,7 +118,6 @@ export default class Game {
                 <img src="./../Images/Dice${diceValue}.png"/>
             </div> 
         `;       
-        
     }
 
     invokeComputerTurn() {
@@ -141,7 +138,7 @@ export default class Game {
         const computerDiceFace = computerNextBid.dieFace;
         console.log('computerBidDiceFace: ', computerDiceFace);
 
-        this.updateBidChoices(computerDiceCount, computerDiceFace)
+        this.updateBidChoices(computerDiceCount, computerDiceFace);
 
         // show computer's bid and liar button
         const showSelectedBid = document.getElementById('show-selected-bid');
@@ -189,7 +186,7 @@ export default class Game {
     }
 
     clickLiar() {
-        
+        // console.log(this.#players[0].name)
         // to update clickLiar function, only pseudo code have been entered here 
         
         const liarBtn = document.getElementById('id');
