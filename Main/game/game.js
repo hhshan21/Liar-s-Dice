@@ -88,20 +88,16 @@ export default class Game {
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
                 bid.addEventListener("click", (event) => {
-                    const { bidDiceCount, bidDiceValue } = event.currentTarget.dataset
+                    const {bidDiceCount, bidDiceValue} = event.currentTarget.dataset
                     this.showSelectedBid(bidDiceCount, bidDiceValue)
                 });
                 bid.addEventListener('click', this.isComputerTurn)
             })
 
         // console.log(this.#players[0].name)
-        
-        
     }
 
     showSelectedBid(diceCount, diceValue) {
-
-        console.log(this.bidChoices)
 
         console.log('diceCount: ', diceCount)
         console.log('diceValue: ', diceValue)
@@ -124,7 +120,27 @@ export default class Game {
             </div> 
         `
 
-        // find the correct choice in this.bidChoices and update the isSelected boolean value
+        const bidChoices = this.bidChoices
+        const maxBid = 10
+        console.log(bidChoices)
+        const availableChoices = bidChoices
+            .filter (choice => {
+                if (choice.numOfDice > diceCount) {
+                    return true
+                } else {
+                    if (choice.dieFace > diceValue) {
+                        return true
+                    }
+                }
+                    
+            }
+        )
+        console.log(availableChoices)
+
+        // const ranNum = getRandomNum(0, availableChoices.length) // assuming this returns 1
+        // const computerNextBid = availableChoices[1] // this gives { count: 2, face: 2 }
+        // console.log(computerNextBid)
+
     }
 
     isComputerTurn(event) {
