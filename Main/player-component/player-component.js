@@ -9,7 +9,7 @@ export default class PlayerComponent {
         return `
             <div class="player-container">
                 <figure class="img-container">
-                    <img src="${this.#user.imgUrl}" alt="${this.#user.name}" style="width:100%">
+                    <img src="${this.#user.imgUrl}" alt="${this.#user.name}">
                     <figcaption>${this.#user.name}</figcaption>
                 </figure>
                 <div class="dice-container">

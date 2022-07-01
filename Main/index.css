@@ -47,20 +47,28 @@ body {
     font-weight: 5;
     border-radius: 5px;
     color: navy;
-    width: 70px;
-    height: 30px;
+    width: 80px;
+    height: 35px;
     font-size: 18px;
 }
 
 .player-container {
     display: flex;
     flex-flow: row nowrap;
-    gap: 1em;
+    gap: 5em;
+    align-items: center;
 }
   
 .player-container .img-container {
     width: 5em;
-    margin: 0;
+    margin: 0;   
+}
+
+.player-container .img-container img {
+    height: 200px;
+    width: 200%;
+    margin-top: 10px;
+    padding-left: 500px;
 }
 
 #players-not-me {
@@ -71,17 +79,8 @@ body {
     flex: 1 0 auto;
     display: flex;
     flex-flow: row wrap;
-}
-  
-.player-container .dice-container .die {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-    padding: 1em;
-}
-  
-.player-container .dice-container .die:last-child {
-    border-right: 1px solid black;
+    padding-left: 500px;
+    padding-bottom: 50px;
 }
 
 #bid-container {
