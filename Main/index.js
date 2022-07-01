@@ -19,7 +19,7 @@ function startGame() {
 }
 
 function addEventListeners() {
-    document.getElementById('start-noti').addEventListener('click', () => {
+    document.querySelector('.start-btn').addEventListener('click', () => {
         startGame();
     })
 }

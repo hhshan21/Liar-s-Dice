@@ -1,6 +1,13 @@
+body {
+    font-family: 'Acme', sans-serif;
+    font-family: 'Koulen', cursive;
+    font-family: 'Righteous', cursive;
+}
+
+
 .noti-container {
     position: absolute;
-    background-color: rgb(195, 195, 195, 0.8);
+    background-color: black;
     top: 0;
     right: 0;
     bottom: 0;
@@ -14,15 +21,35 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    background: white;
+    background: black;
+    width: 200px;
+    font-size: 22px;
+    text-align: center;
+    color: white;
+}
+
+.noti-container .noti-container-body p {
+    margin-top: 12px;
+    margin-bottom: 1px;
 }
 
 .noti-container .noti-container-body .start-icon {
     background-image: url(/Images/POTC.png);
-    background-size: 200px;
+    background-size: 250px;
     background-repeat: no-repeat;
     margin: 0;
-    padding: 5em;
+    padding: 5.5em;
+}
+
+.noti-container .noti-container-body .start-btn {
+    margin-bottom: 30px;
+    background-color: lightcyan;
+    font-weight: 5;
+    border-radius: 5px;
+    color: navy;
+    width: 70px;
+    height: 30px;
+    font-size: 18px;
 }
 
 .player-container {
