@@ -12,6 +12,7 @@ export default class Game {
     }
 
     // func is called once when an instance of object Game is called (based on above ppty)
+    // initial bid choices available for player
     createBidChoices() {
         
         const bidChoices = [];
@@ -113,7 +114,7 @@ export default class Game {
         const showSelectedBid = document.getElementById('show-selected-bid');
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
-                <p>${this.#players[0].name} selected </p>
+                <p>${this.#players[0].name} bid </p>
                 <span>${diceCount} x </span>
                 <img src="./../Images/Dice${diceValue}.png"/>
             </div> 
@@ -145,9 +146,13 @@ export default class Game {
         const computerBid = document.getElementById('computer-bid');
         const showBidOptions = document.getElementById('bid-options');
 
+        const dJ = this.#players[1].name
+
         setTimeout(function() {
+            console.log(this)
             showSelectedBid.innerHTML = `
                 <div class="selected-bid">
+                    <p>${dJ} bid </p>
                     <span>${computerDiceCount} x </span>
                     <img src="./../Images/Dice${computerDiceFace}.png"/>
                 </div> 
@@ -166,7 +171,8 @@ export default class Game {
         this.bidChoices = this.bidChoices.map((bidChoice) => {
             let updatedChoiceIsSelectedKey = false;
 
-            // if numOfDice is the same as diceCount, then look at dieFace value
+            // if numOfDice is the same as diceCount, then look at dieFace value.
+            // Logic is based on isSelected key in createBidChoices() func
             if (bidChoice.numOfDice < diceCount) {
                 updatedChoiceIsSelectedKey = true;
             }
@@ -186,8 +192,6 @@ export default class Game {
     }
 
     clickLiar() {
-        // console.log(this.#players[0].name)
-        // to update clickLiar function, only pseudo code have been entered here 
         
         const liarBtn = document.getElementById('id');
         const dicesImg = document.getElementsByClassName('dice-imgs');
