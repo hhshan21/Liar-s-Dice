@@ -14,7 +14,6 @@ export default class Game {
     // func is called once when an instance of object Game is called (based on above ppty)
     // initial bid choices available for player
     createBidChoices() {
-        
         const bidChoices = [];
 
         const dicePerPlayer = this.numOfDicePerPlayer;
@@ -97,10 +96,6 @@ export default class Game {
     }
 
     showSelectedBid(diceCount, diceValue) {
-
-        console.log('diceCount: ', diceCount);
-        console.log('diceValue: ', diceValue);
-
         // hide bid options for player after bid selected
         const bidOptions = document.getElementById('bid-options');
 
@@ -122,22 +117,17 @@ export default class Game {
     }
 
     invokeComputerTurn() {
-
         // available computer choices
         const computerAvailableChoices = this.bidChoices.filter(
             (choice) => !choice.isSelected
         );
 
-        console.log('availableChoices: ', computerAvailableChoices);
         const randInd = getRandomNum(0, computerAvailableChoices.length);
         const computerNextBid = computerAvailableChoices[randInd];
-        console.log('computerNextBid: ', computerNextBid);
 
         const computerDiceCount = computerNextBid.numOfDice;
-        console.log('computerBidDiceCount: ', computerDiceCount);
 
         const computerDiceFace = computerNextBid.dieFace;
-        console.log('computerBidDiceFace: ', computerDiceFace);
 
         this.updateBidChoices(computerDiceCount, computerDiceFace);
 
@@ -146,24 +136,22 @@ export default class Game {
         const computerBid = document.getElementById('computer-bid');
         const showBidOptions = document.getElementById('bid-options');
 
-        const dJ = this.#players[1].name
-
-        setTimeout(function() {
-            showSelectedBid.innerHTML = `
-                <div class="selected-bid">
-                    <p>${dJ} bid </p>
-                    <span>${computerDiceCount} x </span>
-                    <img src="./../Images/Dice${computerDiceFace}.png"/>
-                </div> 
-            `;
-            computerBid.innerHTML = `
-                <button id="liar">Liar</button>
-            `;
-            showBidOptions.style.display = 'flex';
-        }, 3000)
-
-        this.showPlayerBidChoices();
+        const dJ = this.#players[1].name;
         
+        showSelectedBid.innerHTML = `
+            <div class="selected-bid">
+                <p>${dJ} bid </p>
+                <span>${computerDiceCount} x </span>
+                <img src="./../Images/Dice${computerDiceFace}.png"/>
+            </div> 
+        `;
+        computerBid.innerHTML = `
+            <button id="liar">Liar</button>
+        `;
+        this.clickLiar();
+        showBidOptions.style.display = 'flex';
+        
+        this.showPlayerBidChoices();
     }
 
     updateBidChoices(diceCount, diceValue) {
@@ -191,17 +179,46 @@ export default class Game {
     }
 
     clickLiar() {
-        
-        const liarBtn = document.getElementById('id');
+        const clickLiarBtn = document.querySelector('#liar');
         const dicesImg = document.getElementsByClassName('dice-imgs');
-        liarBtn.addEventListener('click', {
+        const diceContainer = document.getElementsByClassName('dice-container');
+        const dJCont = document.getElementById('players-not-me').getElementsByClassName('dice-container')
+
+        console.log('dicesImg: ', dicesImg)
+        console.log('this.#players: ', (this.#players))
+        console.log('dJCont: ', dJCont)
+        
+        console.log('this.#players[1].dice[4].face: ', this.#players[1].dice[4].face)
+        const players = this.#players.length
+        const dJDice = this.#players[1].dice
+        console.log('dJDice: ', dJDice)
+
+        const blk = []
+        dJDice.forEach((die) => {
+            blk.push(die.face)
+        })
+
+        console.log('blk: ', blk)
+        
+        clickLiarBtn.addEventListener('click', () => {
+            console.log('btn')
+            
+            
+            // dJCont = `
+            //     ${blk.forEach((die) => {
+            //         `<img class="dice-imgs" src="../../Images/Dice${die}.png"/>`
+            //     })}
+            // `
+        })
+        
+            // {
             // show DJ's dice and highlight the dice number
             // highlight "you's" dice number
             // if DJ call more dice count than actual dice count, DJ lose
             // if You call more dice count than actual dice count, You lose
             
             // alert("DJ/You win/lose!", window.location.reload())
-        })
+        // })
         
     }
 }
