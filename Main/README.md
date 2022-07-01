@@ -17,3 +17,17 @@ Liar's dice is a game of lie and deceit between 2 or more players through a game
 
 This game is commonly played as a drinking game at bars in Singapore.
 It was also popularised due to the movie "Pirates of the Carribean" where William Turner (Orlando Bloom) bets against Davy Jones in the second instalment of the franchise.
+
+## Learning points
+
+Learn more about functions, DOM manipulation, OOP just to name a few!
+
+## Challenges
+
+Every step of the project was a challenge. From creating the players to incorporating the logic within the game.
+
+## Improvements I might make
+
+1. Change the dice colour when liar is being called - for easier visual
+2. Think about incorporating the diceFace of "1" as a wild value.
+
