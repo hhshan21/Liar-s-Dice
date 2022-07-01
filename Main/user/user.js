@@ -7,7 +7,7 @@ export default class User {
         this.#diceObj = diceObj;
         this.dice = [];
     }
-    // function to initialise dice in player's hand
+    // to initialise dice in player's hand
     shuffleDice() {
         this.dice.length = 0; // remove all item from dice array
         
