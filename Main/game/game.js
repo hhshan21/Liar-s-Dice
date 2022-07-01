@@ -142,7 +142,7 @@ export default class Game {
             <div class="selected-bid">
                 <p>${dJ} bid </p>
                 <span>${computerDiceCount} x </span>
-                <img src="./../Images/Dice${computerDiceFace}.png"/>
+                <img id="opp-dice-face" src="./../Images/Dice${computerDiceFace}.png" data-dice-face="${computerDiceFace}"/>
             </div> 
         `;
         computerBid.innerHTML = `
@@ -180,45 +180,24 @@ export default class Game {
 
     clickLiar() {
         const clickLiarBtn = document.querySelector('#liar');
-        const dicesImg = document.getElementsByClassName('dice-imgs');
-        const diceContainer = document.getElementsByClassName('dice-container');
-        const dJCont = document.getElementById('players-not-me').getElementsByClassName('dice-container')
 
-        console.log('dicesImg: ', dicesImg)
-        console.log('this.#players: ', (this.#players))
-        console.log('dJCont: ', dJCont)
+        let dJCont = document.getElementById('players-not-me').getElementsByClassName('dice-container')[0]
         
         console.log('this.#players[1].dice[4].face: ', this.#players[1].dice[4].face)
         const players = this.#players.length
         const dJDice = this.#players[1].dice
-        console.log('dJDice: ', dJDice)
-
-        const blk = []
-        dJDice.forEach((die) => {
-            blk.push(die.face)
-        })
-
-        console.log('blk: ', blk)
         
         clickLiarBtn.addEventListener('click', () => {
-            console.log('btn')
-            
-            
-            // dJCont = `
-            //     ${blk.forEach((die) => {
-            //         `<img class="dice-imgs" src="../../Images/Dice${die}.png"/>`
-            //     })}
-            // `
-        })
         
-            // {
-            // show DJ's dice and highlight the dice number
-            // highlight "you's" dice number
-            // if DJ call more dice count than actual dice count, DJ lose
-            // if You call more dice count than actual dice count, You lose
+            console.log(dJCont.children)
+            Array.from(dJCont.children).forEach((imgElement, index) => {
+                imgElement.src = `../../Images/Dice${dJDice[index]['face']}.png`
+            })
             
+
+        })            
             // alert("DJ/You win/lose!", window.location.reload())
-        // })
+        
         
     }
 }
