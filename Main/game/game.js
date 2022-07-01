@@ -136,7 +136,7 @@ export default class Game {
         const computerBid = document.getElementById('computer-bid');
         const showBidOptions = document.getElementById('bid-options');
 
-        const dJ = this.#players[1].name;
+        const { name } = this.#players[1].name;
         
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
