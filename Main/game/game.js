@@ -149,7 +149,6 @@ export default class Game {
         const dJ = this.#players[1].name
 
         setTimeout(function() {
-            console.log(this)
             showSelectedBid.innerHTML = `
                 <div class="selected-bid">
                     <p>${dJ} bid </p>
