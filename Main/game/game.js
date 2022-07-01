@@ -213,9 +213,9 @@ export default class Game {
             // winning logic
             function winning() { 
                 if (finalDiceCount <= count) {
-                    alert(("Davy Jones win! You lost!"), window.location.reload());
+                    alert(("Davy Jones won! You lost!"), window.location.reload());
                 } else {
-                    alert(("You win! Davy Jones lost!"), window.location.reload());
+                    alert(("You won! Davy Jones lost!"), window.location.reload());
             }};
 
             setTimeout(winning, 2000);
