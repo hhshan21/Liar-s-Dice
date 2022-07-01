@@ -133,9 +133,18 @@ body {
 
 #bid-options {
     display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    gap: 2px;
+    padding-left: 20px;
+    overflow-x: scroll;
+}
+
+.ind-bids {
+    width: 30px;
+    margin-bottom: 10px;
+    padding-right: 50px;
+    white-space: nowrap;
+    background-color: darkgoldenrod;
+    display: inline-block;
+    border-radius: 12px;
 }
 
 .dice-container img {
