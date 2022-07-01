@@ -114,7 +114,7 @@ export default class Game {
         const showSelectedBid = document.getElementById('show-selected-bid');
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
-                <p>${this.#players[0].name} bids </p>
+                <p>${this.#players[0].name} bid </p>
                 <span>${diceCount} x </span>
                 <img src="./../Images/Dice${diceValue}.png"/>
             </div> 
@@ -152,7 +152,7 @@ export default class Game {
             console.log(this)
             showSelectedBid.innerHTML = `
                 <div class="selected-bid">
-                    <p>${dJ} bids </p>
+                    <p>${dJ} bid </p>
                     <span>${computerDiceCount} x </span>
                     <img src="./../Images/Dice${computerDiceFace}.png"/>
                 </div> 
@@ -168,42 +168,28 @@ export default class Game {
     }
 
     updateBidChoices(diceCount, diceValue) {
-        bidChoice.isSelected = false;
+        this.bidChoices = this.bidChoices.map((bidChoice) => {
+            let updatedChoiceIsSelectedKey = false;
 
-        // if numOfDice is the same as diceCount, then look at dieFace value
-        if (bidChoice.numOfDice < diceCount) {
-            bidChoice.isSelected = true;
-        }
+            // if numOfDice is the same as diceCount, then look at dieFace value.
+            // Logic is based on isSelected key in createBidChoices() func
+            if (bidChoice.numOfDice < diceCount) {
+                updatedChoiceIsSelectedKey = true;
+            }
 
-        if (
-            parseInt(bidChoice.numOfDice) === parseInt(diceCount) && 
-            parseInt(bidChoice.dieFace) <= parseInt(diceValue)
-        ) {
-            bidChoice.isSelected = true;
-        }
-    };
-        // this.bidChoices = this.bidChoices.map((bidChoice) => {
-        //     let updatedChoiceIsSelectedKey = false;
+            if (
+                parseInt(bidChoice.numOfDice) === parseInt(diceCount) && 
+                parseInt(bidChoice.dieFace) <= parseInt(diceValue)
+            ) {
+                updatedChoiceIsSelectedKey = true;
+            }
 
-        //     // if numOfDice is the same as diceCount, then look at dieFace value.
-        //     // Logic is based on isSelected key in createBidChoices() func
-        //     if (bidChoice.numOfDice < diceCount) {
-        //         updatedChoiceIsSelectedKey = true;
-        //     }
-
-        //     if (
-        //         parseInt(bidChoice.numOfDice) === parseInt(diceCount) && 
-        //         parseInt(bidChoice.dieFace) <= parseInt(diceValue)
-        //     ) {
-        //         updatedChoiceIsSelectedKey = true;
-        //     }
-
-        //     return {
-        //         ...bidChoice,
-        //         isSelected: updatedChoiceIsSelectedKey,
-        //     };
-        // });
-    //}
+            return {
+                ...bidChoice,
+                isSelected: updatedChoiceIsSelectedKey,
+            };
+        });
+    }
 
     clickLiar() {
         
