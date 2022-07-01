@@ -141,8 +141,8 @@ export default class Game {
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
                 <p>${dJ} bid </p>
-                <span>${computerDiceCount} x </span>
-                <img id="opp-dice-face" src="./../Images/Dice${computerDiceFace}.png" data-dice-face="${computerDiceFace}"/>
+                <span id="final-dice-count" data-dice-count="${computerDiceCount}">${computerDiceCount} x </span>
+                <img id="final-dice-face" src="./../Images/Dice${computerDiceFace}.png" data-dice-face="${computerDiceFace}"/>
             </div> 
         `;
         computerBid.innerHTML = `
@@ -180,25 +180,47 @@ export default class Game {
 
     clickLiar() {
         const clickLiarBtn = document.querySelector('#liar');
+        const bidOptionsAfterLiarClicked = document.getElementById('bid-options');
 
-        let dJCont = document.getElementById('players-not-me').getElementsByClassName('dice-container')[0]
+        let dJCont = document.getElementById('players-not-me').getElementsByClassName('dice-container')[0];
         
-        console.log('this.#players[1].dice[4].face: ', this.#players[1].dice[4].face)
-        const players = this.#players.length
-        const dJDice = this.#players[1].dice
+        const dJDice = this.#players[1].dice;
         
         clickLiarBtn.addEventListener('click', () => {
         
-            console.log(dJCont.children)
             Array.from(dJCont.children).forEach((imgElement, index) => {
                 imgElement.src = `../../Images/Dice${dJDice[index]['face']}.png`
-            })
-            
+            });
 
-        })            
-            // alert("DJ/You win/lose!", window.location.reload())
-        
-        
+            bidOptionsAfterLiarClicked.style.display = 'none';
+
+            const finalDiceCount = parseInt(document.querySelector('#final-dice-count').dataset.diceCount);
+            
+            const finalDiceFace = parseInt(document.querySelector('#final-dice-face').dataset.diceFace);
+
+            let count = 0;
+            
+            // counting the total number of dices based on diceFace
+            this.#players.forEach(p => {
+                const diceFaces = p.dice
+                diceFaces.forEach(dice => {
+                    if (finalDiceFace === dice.face) {
+                        count++
+                    }
+                })
+            })
+
+            // winning logic
+            function winning() { 
+                if (finalDiceCount <= count) {
+                    alert(("Davy Jones win! You lost!"), window.location.reload());
+                } else {
+                    alert(("You win! Davy Jones lost!"), window.location.reload());
+            }};
+
+            setTimeout(winning, 2000);
+            
+        })
     }
 }
 
