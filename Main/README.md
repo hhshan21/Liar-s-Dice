@@ -13,10 +13,11 @@ Liar's dice is a game of lie and deceit between 2 or more players through a game
 5. Once a bid is challenged, all the dices are revealed.
 6. If the bid is at least as many of the face value as it is called, the bidder (P1) wins otherwise, P2 wins.
 
-## Common uses of this game
+## Tech used
 
-This game is commonly played as a drinking game at bars in Singapore.
-It was also popularised due to the movie "Pirates of the Carribean" where William Turner (Orlando Bloom) bets against Davy Jones in the second instalment of the franchise.
+HTML
+Javascript
+CSS
 
 ## Learning points
 
