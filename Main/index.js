@@ -34,13 +34,13 @@ function init() {
     const players = [
         new User(
             'You',
-            '/Images/Pirate.png',
+            './Images/Pirate.png',
             true,
             dice
         ),
         new User(
             'Davy Jones',
-            '/Images/Capn.png',
+            './Images/Capn.png',
             false,
             dice
         ),
@@ -57,5 +57,3 @@ function init() {
 }
 
 init();
-
-
