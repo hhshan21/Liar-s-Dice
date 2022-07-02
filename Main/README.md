@@ -33,7 +33,8 @@ Every step of the project was a challenge. From creating the players to incorpor
 
 ## Improvements I might make
 
-1. Change the dice colour to show matching dice faces when liar is being called (for easier visual)
-2. Refactor my codes to make it cleaner
-3. Better naming of variables
+1. Add the theme song of POC as audio
+2. Change the dice colour to show matching dice faces when liar is being called (for easier visual)
+3. Refactor my codes to make it cleaner
+4. Better naming of variables
 
