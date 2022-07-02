@@ -138,11 +138,11 @@ export default class Game {
         const computerBid = document.getElementById('computer-bid');
         const showBidOptions = document.getElementById('bid-options');
 
-        const dJ = this.#players[1].name;
+        const { name } = this.#players[1];
         
         showSelectedBid.innerHTML = `
             <div class="selected-bid">
-                <p>${dJ} bid </p>
+                <p>${ name } bid </p>
                 <span id="final-dice-count" data-dice-count="${computerDiceCount}">${computerDiceCount} x </span>
                 <img id="final-dice-face" src="./Images/Dice${computerDiceFace}.png" data-dice-face="${computerDiceFace}"/>
             </div> 
