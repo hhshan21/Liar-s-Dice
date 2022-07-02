@@ -34,7 +34,7 @@ body {
 }
 
 .noti-container .noti-container-body .start-icon {
-    background-image: url(/Images/POTC.png);
+    background-image: url(./Images/POTC.png);
     background-size: 250px;
     background-repeat: no-repeat;
     margin: 0;
