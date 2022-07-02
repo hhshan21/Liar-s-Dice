@@ -15,9 +15,9 @@ Liar's dice is a game of lie and deceit between 2 or more players through a game
 
 ## Tech used
 
-- HTML
-- Javascript
-- CSS
+1. HTML
+2. Javascript
+3. CSS
 
 ## Learning points
 
