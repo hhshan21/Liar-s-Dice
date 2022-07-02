@@ -132,7 +132,7 @@ body {
 }
 
 #bid-options {
-    display: flex;
+    display: flexbox;
     padding-left: 20px;
     overflow-x: scroll;
 }
