@@ -83,7 +83,7 @@ export default class Game {
 
         myBidContainer.innerHTML = bidChoicesMarkup;
         
-        // on selecting and clicking a bid, function showSelectedBid() is called
+        // on selecting and clicking a bid, functions below are being called
         document.querySelectorAll('.ind-bids')
             .forEach(bid => {
                 bid.addEventListener('click', (event) => {
@@ -122,6 +122,7 @@ export default class Game {
             (choice) => !choice.isSelected
         );
 
+        // computer's next bid
         const randInd = getRandomNum(0, computerAvailableChoices.length);
         const computerNextBid = computerAvailableChoices[randInd];
 
@@ -155,6 +156,8 @@ export default class Game {
     }
 
     updateBidChoices(diceCount, diceValue) {
+
+        // logic of bid choices available to player
         this.bidChoices = this.bidChoices.map((bidChoice) => {
             let updatedChoiceIsSelectedKey = false;
 
@@ -186,8 +189,10 @@ export default class Game {
         
         const dJDice = this.#players[1].dice;
         
+        // what happens when liar button is clicked
         clickLiarBtn.addEventListener('click', () => {
-        
+            
+            // change the dice image from question mark to show the actual dice image
             Array.from(dJCont.children).forEach((imgElement, index) => {
                 imgElement.src = `../../Images/Dice${dJDice[index]['face']}.png`
             });
