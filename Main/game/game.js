@@ -34,6 +34,7 @@ export default class Game {
                 bidChoices.push(diceBid);
             }
         }
+        console.log(bidChoices)
         return bidChoices;
     }
 
@@ -104,7 +105,7 @@ export default class Game {
         } else {
             bidOptions.style.display = 'none';
         }
-
+        
         // show player's bid in selected bid div
         const showSelectedBid = document.getElementById('show-selected-bid');
         showSelectedBid.innerHTML = `
@@ -194,7 +195,7 @@ export default class Game {
             
             // change the dice image from question mark to show the actual dice image
             Array.from(dJCont.children).forEach((imgElement, index) => {
-                imgElement.src = `./Dice${dJDice[index]['face']}.png`
+                imgElement.src = `./Images/Dice${dJDice[index]['face']}.png`
             });
 
             bidOptionsAfterLiarClicked.style.display = 'none';
