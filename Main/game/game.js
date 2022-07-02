@@ -76,7 +76,7 @@ export default class Game {
             .map(choice => `
                 <div class="ind-bids" data-bid-dice-count="${choice.numOfDice}" data-bid-dice-value="${choice.dieFace}">
                     <span>${choice.numOfDice} x </span>
-                    <img src="./../Images/Dice${choice.dieFace}.png"/>
+                    <img src="./Images/Dice${choice.dieFace}.png"/>
                 </div> 
             `)
             .join('');
@@ -111,7 +111,7 @@ export default class Game {
             <div class="selected-bid">
                 <p>${this.#players[0].name} bid </p>
                 <span>${diceCount} x </span>
-                <img src="./../Images/Dice${diceValue}.png"/>
+                <img src="./Images/Dice${diceValue}.png"/>
             </div> 
         `;       
     }
@@ -142,7 +142,7 @@ export default class Game {
             <div class="selected-bid">
                 <p>${dJ} bid </p>
                 <span id="final-dice-count" data-dice-count="${computerDiceCount}">${computerDiceCount} x </span>
-                <img id="final-dice-face" src="./../Images/Dice${computerDiceFace}.png" data-dice-face="${computerDiceFace}"/>
+                <img id="final-dice-face" src="./Images/Dice${computerDiceFace}.png" data-dice-face="${computerDiceFace}"/>
             </div> 
         `;
         computerBid.innerHTML = `
@@ -189,7 +189,7 @@ export default class Game {
         clickLiarBtn.addEventListener('click', () => {
         
             Array.from(dJCont.children).forEach((imgElement, index) => {
-                imgElement.src = `../../Images/Dice${dJDice[index]['face']}.png`
+                imgElement.src = `./Dice${dJDice[index]['face']}.png`
             });
 
             bidOptionsAfterLiarClicked.style.display = 'none';
