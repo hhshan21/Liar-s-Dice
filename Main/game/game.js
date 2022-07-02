@@ -201,8 +201,8 @@ export default class Game {
             let count = 0;
             
             // counting the total number of dices based on diceFace
-            this.#players.forEach(p => {
-                const diceFaces = p.dice
+            this.#players.forEach(person => {
+                const diceFaces = person.dice
                 diceFaces.forEach(dice => {
                     if (finalDiceFace === dice.face) {
                         count++

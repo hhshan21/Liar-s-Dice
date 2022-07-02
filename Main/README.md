@@ -28,7 +28,7 @@ Every step of the project was a challenge. From creating the players to incorpor
 
 ## Improvements I might make
 
-1. Change the dice colour when liar is being called - for easier visual
+1. Change the dice colour to show matching dice faces when liar is being called (for easier visual)
 2. Refactor my codes to make it cleaner
-3. Have better variable names
+3. Better naming of variables
 
