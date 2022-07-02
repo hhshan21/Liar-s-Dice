@@ -2,6 +2,10 @@
 
 Liar's dice is a game of lie and deceit between 2 or more players through a game of dice!
 
+## Game link
+
+https://hhshan21.github.io/Liar-s-Dice/
+
 ## Playing the game
 
 1. Each player is given a set of 5 dices with cups used for concealment.
