@@ -27,6 +27,8 @@ export default class Dice {
             const die = new Die(i);
             this.#dice.push(die);
         }
-    }
+    } 
+
+    //test
 
 }
